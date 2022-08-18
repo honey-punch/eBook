@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eBook</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+    </style>
+
+    <!-- tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundImage: {
+              openBook: "url(./img/열린책.jpg)",
+              closeBook: "url(./img/닫힌책.jpg)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .section1-height {
+          height: 1000px;
+        }
+        .translate-half {
+          transform: translate(-50%, -90%);
+        }
+      }
+    </style>
+
+    <!-- js -->
+    <script src="./js/main.js"></script>
+  </head>
+  <body class="w-screen">
+    <!-- header -->
+    <header class="fixed w-full h-16 bg-white/80 border-b z-50">
+      <div class="flex h-full px-24 mx-auto my-0 justify-between items-center">
+        <div class="logo">logo</div>
+        <nav class="flex justify-between items-center w-44">
+          <a href="#" class="p-2">관심도서</a>
+          <a
+            href="#"
+            class="block w-20 h-8 text-center leading-8 bg-slate-800 hover:bg-slate-500 duration-200 text-white text-sm rounded-full"
+            >로그인</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main>
+      <!-- section1 -->
+      <section class="section1-height">
+        <div
+          class="w-full h-full xl:bg-[url(./img/열린책.jpg)] bg-[url(./img/닫힌책.jpg)] bg-center bg-cover"
+        ></div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer></footer>
+  </body>
+</html>
