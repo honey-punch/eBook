@@ -35,23 +35,23 @@
     </script>
     <style type="text/tailwindcss">
       @layer utilities {
-        .section1-height {
-          height: 1000px;
-        }
         .translate-half {
           transform: translate(-50%, -90%);
+        }
+        .translate-half-x {
+          transform: translate(-50%, 0);
         }
         .main-color {
           color: #364468;
         }
-        .maun-bg-color {
+        .main-bg-color {
           background: #364468;
         }
       }
     </style>
 
     <!-- js -->
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" defer></script>
   </head>
   <body class="w-screen">
     <!-- header -->
@@ -64,7 +64,7 @@
           <a href="#" class="p-2">관심도서</a>
           <a
             href="#"
-            class="block w-20 h-8 text-center leading-8 maun-bg-color hover:bg-gray-500 duration-200 text-white text-sm rounded-full"
+            class="block w-20 h-8 text-center leading-8 main-bg-color hover:bg-gray-500 duration-200 text-white text-sm rounded-full"
             >로그인</a
           >
         </nav>
@@ -74,16 +74,40 @@
     <!-- main -->
     <main>
       <!-- section1 -->
-      <section class="section1-height">
+      <section class="h-screen">
         <div
           class="w-full h-full xl:bg-[url(./img/열린책.jpg)] bg-[url(./img/닫힌책.jpg)] bg-center bg-cover"
         ></div>
       </section>
 
-      <section></section>
+      <!-- section2 -->
+      <section class="h-screen flex flex-col items-center px-20 pt-40 pb-20">
+        <h1 class="mb-8 text-5xl leading-tight text-center font-bold">
+          어떤 책이든<br />8,900원
+        </h1>
+        <p class="text-2xl leading-snug text-center text-gray-600">
+          베스트셀러부터<br />당신만 아는 책까지
+        </p>
+      </section>
+
+      <!-- section3 -->
+      <section
+        class="h-screen flex flex-col items-center px-20 pt-40 pb-20"
+      ></section>
+
+      <!-- section4 -->
+      <section
+        class="h-screen flex flex-col items-center px-20 pt-40 pb-20"
+      ></section>
     </main>
 
     <!-- footer -->
     <footer></footer>
+
+    <!-- start-button -->
+    <a
+      class="block fixed left-1/2 translate-half-x bottom-10 w-64 h-10 text-center leading-9 main-bg-color hover:bg-gray-500 z-50 duration-200 text-white text-lg rounded-full cursor-pointer"
+      >첫 달 <b>무료</b>로 시작하기</a
+    >
   </body>
 </html>
