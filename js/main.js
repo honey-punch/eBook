@@ -2,9 +2,86 @@ window.addEventListener("wheel", function(e){
 	e.preventDefault();
 },{passive : false});
 
-// const sections = document.querySelectorAll("section");
-// let curIndex = 0;
+history.scrollRestoration = "manual";
 
+const sections = document.querySelectorAll("section");
+const clientHeight = window.innerHeight;
+
+function wheelDown() {
+  const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+
+  for (let i = 1; i < sections.length; i++) {
+    if (lastElementTop === clientHeight * (sections.length - i)) {
+      scrollTo({ top: clientHeight * i, behavior: "smooth" });
+    }
+  }
+}
+function wheelUp() {
+  const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+
+  for (let i = 0; i < sections.length - 1; i++) {
+    if (lastElementTop === clientHeight * i) {
+      scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
+    }
+  }
+}
+
+document.addEventListener('wheel', (e) => {
+  if(e.deltaY > 0) {
+    wheelDown();
+  } else if(e.deltaY < 0) {
+    wheelUp();
+  }
+})
+
+// 디바운싱
+// let timer;
+// window.addEventListener("wheel", function(e) {
+//   if (timer) {
+//     clearTimeout(timer);
+//   }
+//   timer = setTimeout(function () {
+//     if(e.deltaY < 0) {
+//       wheelUp(lastElementTop);
+//     } else if (e.deltaY > 0) {
+//       wheelDown(lastElementTop);
+//     }
+//   }, 50)
+// });
+
+// 스로틀링
+// let timer;
+// window.addEventListener("wheel", function(e) {
+//   if (!timer) {
+//     timer = setTimeout(function () {
+//       timer = null;
+//       if(e.deltaY < 0) {
+//         wheelUp(lastElementTop);
+//       } else if (e.deltaY > 0) {
+//         wheelDown(lastElementTop);
+//       }
+//     }, 500)
+//   }
+// });
+
+// let wheelTimer;
+// window.addEventListener("wheel", function(e) {
+//   clearTimeout(wheelTimer);
+//   wheelTimer = setTimeout(function() {
+//     const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+//   	if(e.deltaY < 0) {
+//       wheelUp(lastElementTop);
+//     } else {
+//       wheelDown(lastElementTop);
+//     }
+//   }, 50);
+// });
+
+
+
+// const sections = document.querySelectorAll("section");
+
+// let curIndex = 0;
 // let wheelTimer;
 // window.addEventListener("wheel", function(e) {
 //   clearTimeout(wheelTimer);
@@ -81,36 +158,36 @@ window.addEventListener("wheel", function(e){
 //   });
 // }
 
-const sections = document.querySelectorAll("section");
 
-history.scrollRestoration = "manual";
+// const sections = document.querySelectorAll("section");
 
-document.addEventListener("wheel", (event) => {
-  const clientHeight = window.innerHeight;
-  const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+// history.scrollRestoration = "manual";
 
-  if (event.deltaY > 0) {
-    wheelDown(sections, lastElementTop, clientHeight);
-  } else if (event.deltaY < 0) {
-    wheelUp(sections, lastElementTop, clientHeight);
-  }
-});
+// document.addEventListener("wheel", (event) => {
+//   const clientHeight = window.innerHeight;
+//   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
 
-function wheelDown(sections, lastElementTop, clientHeight) {
-  for (let i = 1; i < sections.length; i++) {
-    if (lastElementTop === clientHeight * (sections.length - i)) {
-      scrollTo({ top: clientHeight * i, behavior: "smooth" });
-    }
-  }
-}
-function wheelUp(sections, lastElementTop, clientHeight) {
-  for (let i = 0; i < sections.length - 1; i++) {
-    if (lastElementTop === clientHeight * i) {
-      scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
-    }
-  }
-}
+//   if (event.deltaY > 0) {
+//     wheelDown(sections, lastElementTop, clientHeight);
+//   } else if (event.deltaY < 0) {
+//     wheelUp(sections, lastElementTop, clientHeight);
+//   }
+// });
 
+// function wheelDown(sections, lastElementTop, clientHeight) {
+//   for (let i = 1; i < sections.length; i++) {
+//     if (lastElementTop === clientHeight * (sections.length - i)) {
+//       scrollTo({ top: clientHeight * i, behavior: "smooth" });
+//     }
+//   }
+// }
+// function wheelUp(sections, lastElementTop, clientHeight) {
+//   for (let i = 0; i < sections.length - 1; i++) {
+//     if (lastElementTop === clientHeight * i) {
+//       scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
+//     }
+//   }
+// }
 
 
 
