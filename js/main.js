@@ -1,3 +1,7 @@
+window.onresize = function () {
+  document.location.reload();
+}
+
 window.addEventListener("wheel", function(e){
 	e.preventDefault();
 },{passive : false});
@@ -7,32 +11,77 @@ history.scrollRestoration = "manual";
 const sections = document.querySelectorAll("section");
 const clientHeight = window.innerHeight;
 
+// 박현우 최종
+let targetScrollY = 0;
+
 window.addEventListener('wheel', (e) => {
-  if(e.deltaY > 30) {
-    wheelDown();
-  } else if(e.deltaY < -30) {
-    wheelUp();
+  const isUp = Math.sign(e.wheelDelta) < 0;
+
+  if (Math.abs(e.deltaY) > 30 && window.scrollY == targetScrollY) {
+    
+
+    isUp ? wheelDown() : wheelUp();
+
+    isActiveWheel = false;
   }
-})
+});
 
 function wheelDown() {
-  const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+  const lastElementTop =
+    sections[sections.length - 1].getBoundingClientRect().top;
 
   for (let i = 1; i < sections.length; i++) {
     if (lastElementTop === clientHeight * (sections.length - i)) {
-      scrollTo({ top: clientHeight * i, behavior: "smooth" });
+      scrollTo({ top: clientHeight * i, behavior: 'smooth' });
+
+      targetScrollY += clientHeight;
     }
   }
 }
+
 function wheelUp() {
-  const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+  const lastElementTop =
+    sections[sections.length - 1].getBoundingClientRect().top;
 
   for (let i = 0; i < sections.length - 1; i++) {
     if (lastElementTop === clientHeight * i) {
-      scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
+      scrollTo({
+        top: clientHeight * (sections.length - 2 - i),
+        behavior: 'smooth',
+      });
+
+      targetScrollY -= clientHeight;
     }
   }
 }
+
+// 내가 짠거
+// window.addEventListener('wheel', (e) => {
+//   if(e.deltaY > 30) {
+//     wheelDown();
+//   } else if(e.deltaY < -30) {
+//     wheelUp();
+//   }
+// })
+
+// function wheelDown() {
+//   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+
+//   for (let i = 1; i < sections.length; i++) {
+//     if (lastElementTop === clientHeight * (sections.length - i)) {
+//       scrollTo({ top: clientHeight * i, behavior: "smooth" });
+//     }
+//   }
+// }
+// function wheelUp() {
+//   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
+
+//   for (let i = 0; i < sections.length - 1; i++) {
+//     if (lastElementTop === clientHeight * i) {
+//       scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
+//     }
+//   }
+// }
 
 // 디바운싱
 // let timer;
