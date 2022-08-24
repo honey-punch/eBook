@@ -7,6 +7,13 @@ history.scrollRestoration = "manual";
 const sections = document.querySelectorAll("section");
 const clientHeight = window.innerHeight;
 
+window.addEventListener('wheel', (e) => {
+  if(e.deltaY > 30) {
+    wheelDown();
+  } else if(e.deltaY < -30) {
+    wheelUp();
+  }
+})
 
 function wheelDown() {
   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
@@ -27,29 +34,6 @@ function wheelUp() {
   }
 }
 
-let a = true;
-let timeoutId;
-
-window.addEventListener('wheel', (e) => {
-  if (a) {
-    clearTimeout(timeoutId);
-
-    a = false;
-    
-    if(e.deltaY > 0) {
-      wheelDown();
-    } else if(e.deltaY < 0) {
-      wheelUp();
-    }
-
-    timeoutId = setTimeout(() => {
-      a = true;
-    }, 1000);
-
-  }
-});
-
-
 // 디바운싱
 // let timer;
 // window.addEventListener("wheel", function(e) {
@@ -58,11 +42,11 @@ window.addEventListener('wheel', (e) => {
 //   }
 //   timer = setTimeout(function () {
 //     if(e.deltaY < 0) {
-//       wheelUp(lastElementTop);
+//       wheelUp();
 //     } else if (e.deltaY > 0) {
-//       wheelDown(lastElementTop);
+//       wheelDown();
 //     }
-//   }, 50)
+//   }, 40)
 // });
 
 //스로틀링
@@ -106,88 +90,75 @@ window.addEventListener('wheel', (e) => {
 //   });  	
 // }
 
+// 박현우1
+// let a = true;
+// let timeoutId;
 
+// window.addEventListener('wheel', (e) => {
+//   if (a) {
+//     clearTimeout(timeoutId);
 
-// window.onload = function(){
-//   const sections = document.querySelectorAll('section');
-//   const count  = sections.length;
-  
-//   sections.forEach(function(item, index) {
-//     item.addEventListener('wheel', function(event){
-//       event.preventDefault();
-      
-//       let delta = 0;
+//     a = false;
+    
+//     if(e.deltaY > 0) {
+//       wheelDown();
+//     } else if(e.deltaY < 0) {
+//       wheelUp();
+//     }
 
-//       if (!event) {
-//         event = window.event;
-//       }
-
-//       if (event.wheelDelta) {
-//           delta = event.wheelDelta / 120;
-//           if (window.opera) {
-//             delta = -delta;
-//           }
-//       } else if (event.detail) {
-//         delta = -event.detail / 3;
-//       }
-
-//       let moveTop = window.scrollY;
-//       let sectionSelector = sections[index];
-
-//       // wheel down : move to next section
-//       if (delta < 0){
-//         if (sectionSelector !== count - 1){
-//           try{
-//             moveTop = window.pageYOffset + sectionSelector.nextElementSibling.getBoundingClientRect().top;
-//           } catch(e) {}
-//         }
-//       }
-      
-//       // wheel up : move to previous section
-//       else{
-//         if (sectionSelector !== 0){
-//           try{
-//             moveTop = window.pageYOffset + sectionSelector.previousElementSibling.getBoundingClientRect().top;
-//           }catch(e){}
-//         }
-//       }
-
-//       const body = document.querySelector('html');
-//       window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
-//     });
-//   });
-// }
-
-
-
-// history.scrollRestoration = "manual";
-
-// document.addEventListener("wheel", (event) => {
-//   const clientHeight = window.innerHeight;
-//   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
-
-//   if (event.deltaY > 0) {
-//     wheelDown(sections, lastElementTop, clientHeight);
-//   } else if (event.deltaY < 0) {
-//     wheelUp(sections, lastElementTop, clientHeight);
+//     timeoutId = setTimeout(() => {
+//       a = true;
+//     }, 1400);
 //   }
 // });
 
-// function wheelDown(sections, lastElementTop, clientHeight) {
-//   for (let i = 1; i < sections.length; i++) {
-//     if (lastElementTop === clientHeight * (sections.length - i)) {
-//       scrollTo({ top: clientHeight * i, behavior: "smooth" });
-//     }
-//   }
-// }
-// function wheelUp(sections, lastElementTop, clientHeight) {
-//   for (let i = 0; i < sections.length - 1; i++) {
-//     if (lastElementTop === clientHeight * i) {
-//       scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
-//     }
-//   }
+// 박현우2
+// let a = true;
+// let timeoutId;
+
+// function clearWheelEvent(id) {
+//   clearTimeout(id);
 // }
 
+// function ignoreWheelEvent() {
+//   timeoutId = setTimeout(() => {
+//     console.log('change a.');
+//     a = true;
+//   }, 1500);
+// }
+
+// window.addEventListener('wheel', (e) => {
+//   if (a) {
+//     console.log(`a=${a}`);
+
+//     a = false;
+
+//     clearWheelEvent(timeoutId);
+//     ignoreWheelEvent();
+
+//     if (e.deltaY > 0) {
+//       console.log(`down=${e.deltaY}`);
+//       wheelDown();
+//     } else if (e.deltaY < 0) {
+//       wheelUp();
+//     }
+//   }
+// });
+
+// 박현우3
+// let prevDeltaY = 0;
+
+// window.addEventListener('wheel', (e) => {
+//   if (Math.abs(prevDeltaY - e.deltaY) > 30) {
+//     const isScrollingDown = Math.sign(e.deltaY);
+
+//     const isUp = isScrollingDown > 0;
+
+//     console.log(`isUp=${isUp ? 'up' : 'down'}`);
+
+//     isUp ? wheelUp() : wheelDown();
+//   }
+// });
 
 
 // 스크롤시 header 안보이게
