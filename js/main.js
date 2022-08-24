@@ -7,6 +7,7 @@ history.scrollRestoration = "manual";
 const sections = document.querySelectorAll("section");
 const clientHeight = window.innerHeight;
 
+
 function wheelDown() {
   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
 
@@ -26,13 +27,28 @@ function wheelUp() {
   }
 }
 
-document.addEventListener('wheel', (e) => {
-  if(e.deltaY > 0) {
-    wheelDown();
-  } else if(e.deltaY < 0) {
-    wheelUp();
+let a = true;
+let timeoutId;
+
+window.addEventListener('wheel', (e) => {
+  if (a) {
+    clearTimeout(timeoutId);
+
+    a = false;
+    
+    if(e.deltaY > 0) {
+      wheelDown();
+    } else if(e.deltaY < 0) {
+      wheelUp();
+    }
+
+    timeoutId = setTimeout(() => {
+      a = true;
+    }, 1000);
+
   }
-})
+});
+
 
 // 디바운싱
 // let timer;
@@ -49,38 +65,22 @@ document.addEventListener('wheel', (e) => {
 //   }, 50)
 // });
 
-// 스로틀링
+//스로틀링
 // let timer;
 // window.addEventListener("wheel", function(e) {
 //   if (!timer) {
 //     timer = setTimeout(function () {
 //       timer = null;
 //       if(e.deltaY < 0) {
-//         wheelUp(lastElementTop);
+//         wheelUp();
 //       } else if (e.deltaY > 0) {
-//         wheelDown(lastElementTop);
+//         wheelDown();
 //       }
 //     }, 500)
 //   }
 // });
 
-// let wheelTimer;
-// window.addEventListener("wheel", function(e) {
-//   clearTimeout(wheelTimer);
-//   wheelTimer = setTimeout(function() {
-//     const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
-//   	if(e.deltaY < 0) {
-//       wheelUp(lastElementTop);
-//     } else {
-//       wheelDown(lastElementTop);
-//     }
-//   }, 50);
-// });
-
-
-
-// const sections = document.querySelectorAll("section");
-
+// 또다른 디바운싱 함수
 // let curIndex = 0;
 // let wheelTimer;
 // window.addEventListener("wheel", function(e) {
@@ -159,7 +159,6 @@ document.addEventListener('wheel', (e) => {
 // }
 
 
-// const sections = document.querySelectorAll("section");
 
 // history.scrollRestoration = "manual";
 
