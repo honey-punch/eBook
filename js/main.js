@@ -1,3 +1,6 @@
+// wheel event
+history.scrollRestoration = "manual";
+
 window.onresize = function () {
   document.location.reload();
 }
@@ -6,12 +9,10 @@ window.addEventListener("wheel", function(e){
 	e.preventDefault();
 },{passive : false});
 
-history.scrollRestoration = "manual";
-
 const sections = document.querySelectorAll("section");
 const clientHeight = window.innerHeight;
 
-// 박현우 최종
+
 let targetScrollY = 0;
 
 window.addEventListener('wheel', (e) => {
@@ -55,7 +56,20 @@ function wheelUp() {
   }
 }
 
-// 내가 짠거
+// section2 scroll허용
+const scrollBox = document.querySelector('.scroll-box');
+
+scrollBox.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+});
+
+
+
+
+
+// // 내가 짠거
 // window.addEventListener('wheel', (e) => {
 //   if(e.deltaY > 30) {
 //     wheelDown();
@@ -138,76 +152,6 @@ function wheelUp() {
 //     block: "start", inline: "start", behavior: "smooth"
 //   });  	
 // }
-
-// 박현우1
-// let a = true;
-// let timeoutId;
-
-// window.addEventListener('wheel', (e) => {
-//   if (a) {
-//     clearTimeout(timeoutId);
-
-//     a = false;
-    
-//     if(e.deltaY > 0) {
-//       wheelDown();
-//     } else if(e.deltaY < 0) {
-//       wheelUp();
-//     }
-
-//     timeoutId = setTimeout(() => {
-//       a = true;
-//     }, 1400);
-//   }
-// });
-
-// 박현우2
-// let a = true;
-// let timeoutId;
-
-// function clearWheelEvent(id) {
-//   clearTimeout(id);
-// }
-
-// function ignoreWheelEvent() {
-//   timeoutId = setTimeout(() => {
-//     console.log('change a.');
-//     a = true;
-//   }, 1500);
-// }
-
-// window.addEventListener('wheel', (e) => {
-//   if (a) {
-//     console.log(`a=${a}`);
-
-//     a = false;
-
-//     clearWheelEvent(timeoutId);
-//     ignoreWheelEvent();
-
-//     if (e.deltaY > 0) {
-//       console.log(`down=${e.deltaY}`);
-//       wheelDown();
-//     } else if (e.deltaY < 0) {
-//       wheelUp();
-//     }
-//   }
-// });
-
-// 박현우3
-// let prevDeltaY = 0;
-
-// window.addEventListener('wheel', (e) => {
-//   if (Math.abs(prevDeltaY - e.deltaY) > 30) {
-//     const isScrollingDown = Math.sign(e.deltaY);
-
-//     const isUp = isScrollingDown > 0;
-
-//     console.log(`isUp=${isUp ? 'up' : 'down'}`);
-
-//     isUp ? wheelUp() : wheelDown();
-//   }
-// });
 
 
 // 스크롤시 header 안보이게
