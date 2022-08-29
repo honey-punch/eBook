@@ -1,29 +1,26 @@
-// wheel event
+// wheel common
 history.scrollRestoration = "manual";
 
 window.onresize = function () {
   document.location.reload();
 }
 
-window.addEventListener("wheel", function(e){
+window.addEventListener("wheel", (e) => {
 	e.preventDefault();
 },{passive : false});
 
 const sections = document.querySelectorAll("section");
 const clientHeight = window.innerHeight;
 
-
+// wheel event
 let targetScrollY = 0;
 
 window.addEventListener('wheel', (e) => {
   const isUp = Math.sign(e.wheelDelta) < 0;
 
-  if (Math.abs(e.deltaY) > 30 && window.scrollY == targetScrollY) {
+  if (Math.abs(e.deltaY) > 25 && window.scrollY == targetScrollY) {
     
-
     isUp ? wheelDown() : wheelUp();
-
-    isActiveWheel = false;
   }
 });
 
@@ -55,47 +52,6 @@ function wheelUp() {
     }
   }
 }
-
-// section2 scroll허용
-const scrollBox = document.querySelector('.scroll-box');
-
-scrollBox.addEventListener("wheel", function(e){
-  e.preventDefault = false;
-  e.stopImmediatePropagation();
-  e.stopPropagation();
-});
-
-
-
-
-
-// // 내가 짠거
-// window.addEventListener('wheel', (e) => {
-//   if(e.deltaY > 30) {
-//     wheelDown();
-//   } else if(e.deltaY < -30) {
-//     wheelUp();
-//   }
-// })
-
-// function wheelDown() {
-//   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
-
-//   for (let i = 1; i < sections.length; i++) {
-//     if (lastElementTop === clientHeight * (sections.length - i)) {
-//       scrollTo({ top: clientHeight * i, behavior: "smooth" });
-//     }
-//   }
-// }
-// function wheelUp() {
-//   const lastElementTop = sections[sections.length - 1].getBoundingClientRect().top;
-
-//   for (let i = 0; i < sections.length - 1; i++) {
-//     if (lastElementTop === clientHeight * i) {
-//       scrollTo({ top: clientHeight * (sections.length - 2 - i), behavior: "smooth" });
-//     }
-//   }
-// }
 
 // 디바운싱
 // let timer;
@@ -153,7 +109,6 @@ scrollBox.addEventListener("wheel", function(e){
 //   });  	
 // }
 
-
 // 스크롤시 header 안보이게
 // const header = document.querySelector('header');
 
@@ -165,3 +120,60 @@ scrollBox.addEventListener("wheel", function(e){
 //     header.classList.remove('hidden');
 //   }
 // });
+
+// section2
+// scroll허용 영역
+const scrollBox = document.querySelector('.scroll-box');
+
+scrollBox.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+});
+
+// bookInfo
+class BookInfo {
+  constructor(imgSrc) {
+    this.imgSrc = imgSrc;
+  }
+}
+
+const bookInfoList = new Array();
+
+function createAndPush(src) {
+  const book = new BookInfo(src);
+  bookInfoList.push(book);
+  return bookInfoList;
+}
+createAndPush('./img/section2-1.jpeg');
+createAndPush('./img/section2-2.jpeg');
+createAndPush('./img/section2-3.jpeg');
+createAndPush('./img/section2-4.jpeg');
+createAndPush('./img/section2-5.jpeg');
+createAndPush('./img/section2-6.jpeg');
+createAndPush('./img/section2-7.jpeg');
+createAndPush('./img/section2-8.jpeg');
+createAndPush('./img/section2-9.jpeg');
+createAndPush('./img/section2-10.jpeg');
+
+const bookInfoTemplate = document.querySelector('.bookinfo-template');
+
+function makeCopy() {
+  let copy = bookInfoTemplate.cloneNode(true);
+  scrollBox.appendChild(copy);
+}
+
+let i = 0;
+
+while(i < bookInfoList.length - 1) {
+  makeCopy();
+  i++;
+}
+
+let bookImgSrc = document.querySelectorAll('.book-img-src');
+
+for (let i = 0; i < bookInfoList.length; i++) {
+  bookImgSrc[i].src = bookInfoList[i].imgSrc;
+}
+
+// 무한 스크롤
