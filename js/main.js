@@ -122,16 +122,7 @@ function wheelUp() {
 // });
 
 // section2
-// scroll허용 영역
-const scrollBox = document.querySelector('.scroll-box');
-
-scrollBox.addEventListener("wheel", function(e){
-  e.preventDefault = false;
-  e.stopImmediatePropagation();
-  e.stopPropagation();
-});
-
-// bookInfo
+// bookInfo object and array
 class BookInfo {
   constructor(imgSrc) {
     this.imgSrc = imgSrc;
@@ -155,12 +146,26 @@ createAndPush('./img/section2-7.jpeg');
 createAndPush('./img/section2-8.jpeg');
 createAndPush('./img/section2-9.jpeg');
 createAndPush('./img/section2-10.jpeg');
+createAndPush('./img/section2-1.jpeg');
+createAndPush('./img/section2-2.jpeg');
+createAndPush('./img/section2-3.jpeg');
+createAndPush('./img/section2-4.jpeg');
+createAndPush('./img/section2-5.jpeg');
+createAndPush('./img/section2-6.jpeg');
+createAndPush('./img/section2-7.jpeg');
+createAndPush('./img/section2-8.jpeg');
+createAndPush('./img/section2-9.jpeg');
+createAndPush('./img/section2-10.jpeg');
 
-const bookInfoTemplate = document.querySelector('.bookinfo-template');
+// bookInfo copy and imgSrc
+const animationBox = document.querySelectorAll('.animation-box');
+const bookInfoTemplate = document.querySelectorAll('.bookinfo-template');
 
 function makeCopy() {
-  let copy = bookInfoTemplate.cloneNode(true);
-  scrollBox.appendChild(copy);
+  for (let i = 0; i < bookInfoTemplate.length; i++) {
+    let copy = bookInfoTemplate[i].cloneNode(true);
+    animationBox[i].appendChild(copy);
+  }
 }
 
 let i = 0;
@@ -176,4 +181,12 @@ for (let i = 0; i < bookInfoList.length; i++) {
   bookImgSrc[i].src = bookInfoList[i].imgSrc;
 }
 
-// 무한 스크롤
+
+// scroll 일부 허용 코드
+// const scrollBox = document.querySelector('.scroll-box');
+
+// scrollBox.addEventListener("wheel", function(e){
+//   e.preventDefault = false;
+//   e.stopImmediatePropagation();
+//   e.stopPropagation();
+// });
