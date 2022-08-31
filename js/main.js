@@ -157,25 +157,20 @@ createAndPush('./img/section2-7.jpeg');
 createAndPush('./img/section2-8.jpeg');
 createAndPush('./img/section2-9.jpeg');
 createAndPush('./img/section2-10.jpeg');
-createAndPush('./img/section2-1.jpeg');
-createAndPush('./img/section2-2.jpeg');
-createAndPush('./img/section2-3.jpeg');
-createAndPush('./img/section2-4.jpeg');
-createAndPush('./img/section2-5.jpeg');
-createAndPush('./img/section2-6.jpeg');
-createAndPush('./img/section2-7.jpeg');
-createAndPush('./img/section2-8.jpeg');
-createAndPush('./img/section2-9.jpeg');
-createAndPush('./img/section2-10.jpeg');
 
 // bookInfo copy & imgSrc
 const hiddenBox = document.querySelector('.hidden-box');
 const animationBox = document.querySelector('.animation-box');
-const bookInfoTemplate = document.querySelector('.bookinfo-template');
+const bookTemplate = document.querySelector('.book-template');
 
 function makeTempCopy() {
-  let copy = bookInfoTemplate.cloneNode(true);
+  let copy = bookTemplate.cloneNode(true);
   animationBox.appendChild(copy);
+}
+
+function makeBoxCopy() {
+  let copy = animationBox.cloneNode(true);
+  hiddenBox.appendChild(copy);
 }
 
 let i = 0;
@@ -185,6 +180,7 @@ while(i < bookInfoList.length - 1) {
   i++;
 }
 
+
 let bookImgSrc = document.querySelectorAll('.book-img-src');
 
 for (let i = 0; i < bookInfoList.length; i++) {
@@ -192,11 +188,11 @@ for (let i = 0; i < bookInfoList.length; i++) {
 }
 
 // const animationBox = document.querySelectorAll('.animation-box');
-// const bookInfoTemplate = document.querySelectorAll('.bookinfo-template');
+// const bookTemplate = document.querySelectorAll('.bookinfo-bookTemplate');
 
 // function makeCopy() {
-//   for (let i = 0; i < bookInfoTemplate.length; i++) {
-//     let copy = bookInfoTemplate[i].cloneNode(true);
+//   for (let i = 0; i < bookTemplate.length; i++) {
+//     let copy = bookTemplate[i].cloneNode(true);
 //     animationBox[i].appendChild(copy);
 //   }
 // }

@@ -20,7 +20,7 @@
     </style>
 
     <!-- tailwindcss -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
       tailwind.config = {
         theme: {
@@ -51,10 +51,10 @@
         @keyframes to-left {
           0%,
           100% {
-            transform: translateX(-100%);
+            transform: translateX(0%);
           }
           50% {
-            transform: translateX(0%);
+            transform: translateX(-100%);
           }
         }
         @keyframes to-right {
@@ -104,17 +104,17 @@
         class="w-full h-screen flex flex-col items-center px-20 pt-32 pb-20"
       >
         <h1 class="mb-6 text-5xl leading-tight text-center font-bold">
-          하루에 20권<br />8,900원
+          하루에 30권<br />8,900원
         </h1>
         <p class="text-xl leading-snug text-center text-gray-600">
           매일 업데이트 되는 30권을 할인된 가격에
         </p>
-        <div class="hidden-box w-full h-full my-10 overflow-hidden">
+        <div class="hidden-box flex flex-col w-full h-full my-10 overflow-hidden">
           <!-- animation box -->
-          <div class="animation-box flex max-w-fit to-left">
+          <div class="animation-box flex w-fit to-left">
             <a
               href="#"
-              class="bookinfo-template block shrink-0 w-36 h-56 m-2 hover:opacity-60"
+              class="book-template block shrink-0 w-36 h-56 m-2 hover:opacity-60"
             >
               <img
                 class="book-img-src w-full h-full object-cover"
