@@ -122,7 +122,7 @@ function wheelUp() {
 // });
 
 // section2
-// bookInfo object and array
+// bookInfo object & array
 class BookInfo {
   constructor(imgSrc) {
     this.imgSrc = imgSrc;
@@ -131,11 +131,22 @@ class BookInfo {
 
 const bookInfoList = new Array();
 
-function createAndPush(src) {
-  const book = new BookInfo(src);
+function createAndPush(imgSrc) {
+  const book = new BookInfo(imgSrc);
   bookInfoList.push(book);
   return bookInfoList;
 }
+
+createAndPush('./img/section2-1.jpeg');
+createAndPush('./img/section2-2.jpeg');
+createAndPush('./img/section2-3.jpeg');
+createAndPush('./img/section2-4.jpeg');
+createAndPush('./img/section2-5.jpeg');
+createAndPush('./img/section2-6.jpeg');
+createAndPush('./img/section2-7.jpeg');
+createAndPush('./img/section2-8.jpeg');
+createAndPush('./img/section2-9.jpeg');
+createAndPush('./img/section2-10.jpeg');
 createAndPush('./img/section2-1.jpeg');
 createAndPush('./img/section2-2.jpeg');
 createAndPush('./img/section2-3.jpeg');
@@ -157,21 +168,20 @@ createAndPush('./img/section2-8.jpeg');
 createAndPush('./img/section2-9.jpeg');
 createAndPush('./img/section2-10.jpeg');
 
-// bookInfo copy and imgSrc
-const animationBox = document.querySelectorAll('.animation-box');
-const bookInfoTemplate = document.querySelectorAll('.bookinfo-template');
+// bookInfo copy & imgSrc
+const hiddenBox = document.querySelector('.hidden-box');
+const animationBox = document.querySelector('.animation-box');
+const bookInfoTemplate = document.querySelector('.bookinfo-template');
 
-function makeCopy() {
-  for (let i = 0; i < bookInfoTemplate.length; i++) {
-    let copy = bookInfoTemplate[i].cloneNode(true);
-    animationBox[i].appendChild(copy);
-  }
+function makeTempCopy() {
+  let copy = bookInfoTemplate.cloneNode(true);
+  animationBox.appendChild(copy);
 }
 
 let i = 0;
 
 while(i < bookInfoList.length - 1) {
-  makeCopy();
+  makeTempCopy();
   i++;
 }
 
@@ -181,9 +191,38 @@ for (let i = 0; i < bookInfoList.length; i++) {
   bookImgSrc[i].src = bookInfoList[i].imgSrc;
 }
 
+// const animationBox = document.querySelectorAll('.animation-box');
+// const bookInfoTemplate = document.querySelectorAll('.bookinfo-template');
+
+// function makeCopy() {
+//   for (let i = 0; i < bookInfoTemplate.length; i++) {
+//     let copy = bookInfoTemplate[i].cloneNode(true);
+//     animationBox[i].appendChild(copy);
+//   }
+// }
+
+// let i = 0;
+
+// while(i < bookInfoList.length - 1) {
+//   makeCopy();
+//   i++;
+// }
+
+// let bookImgSrc = document.querySelectorAll('.book-img-src');
+
+// // for (let i = 0; i < bookInfoList.length; i++) {
+// //   bookImgSrc[i].src = bookInfoList[i].imgSrc;
+// // }
+
+// for (let i = 0; i < animationBox.length; i++) {
+//   for (let j = 0; j < bookInfoList.length; j++) {
+//   bookImgSrc[j].src = bookInfoList[j].imgSrc;
+//   }
+// }
+
 
 // scroll 일부 허용 코드
-// const scrollBox = document.querySelector('.scroll-box');
+// const scrollBox = document.querySelector('.animation-box');
 
 // scrollBox.addEventListener("wheel", function(e){
 //   e.preventDefault = false;
