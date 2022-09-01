@@ -13,66 +13,14 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        font-family: "Noto Sans KR", sans-serif;
-      }
-    </style>
 
     <!-- tailwindcss -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {},
-        },
-      };
-    </script>
-    <style type="text/tailwindcss">
-      @layer utilities {
-        .translate-half {
-          transform: translate(-50%, -90%);
-        }
-        .translate-half-x {
-          transform: translate(-50%, 0);
-        }
-        .main-color {
-          color: #364468;
-        }
-        .main-bg-color {
-          background: #364468;
-        }
-        .to-left {
-          animation: to-left 10s linear infinite;
-        }
-        .to-right {
-          animation: to-right 10s linear infinite;
-        }
-        @keyframes to-left {
-          0%,
-          100% {
-            transform: translateX(0%);
-          }
-          50% {
-            transform: translateX(-100%);
-          }
-        }
-        @keyframes to-right {
-          0%,
-          100% {
-            transform: translateX(0%);
-          }
-          50% {
-            transform: translateX(-100%);
-          }
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./dist/output.css" />
 
     <!-- js -->
     <script src="./js/main.js" defer></script>
   </head>
-  <body>
+  <body class="font-noto">
     <!-- header -->
     <header class="fixed w-full h-16 bg-white/80 border-b z-50">
       <div class="flex h-full px-24 mx-auto my-0 justify-between items-center">
@@ -94,9 +42,7 @@
     <main>
       <!-- section1 -->
       <section class="h-screen">
-        <div
-          class="w-full h-full xl:bg-[url(./img/열린책.jpg)] bg-[url(./img/닫힌책.jpg)] bg-center bg-cover"
-        ></div>
+        <div class="w-full h-full book-img bg-center bg-cover"></div>
       </section>
 
       <!-- section2 -->
@@ -104,17 +50,19 @@
         class="w-full h-screen flex flex-col items-center px-20 pt-32 pb-20"
       >
         <h1 class="mb-6 text-5xl leading-tight text-center font-bold">
-          하루에 30권<br />8,900원
+          하루에 20권<br />8,900원
         </h1>
         <p class="text-xl leading-snug text-center text-gray-600">
-          매일 업데이트 되는 30권을 할인된 가격에
+          매일 업데이트 되는 20권을 할인된 가격에
         </p>
-        <div class="hidden-box flex flex-col w-full h-full my-10 overflow-hidden">
+        <div
+          class="hidden-box flex flex-col w-full h-full my-10 overflow-hidden"
+        >
           <!-- animation box -->
           <div class="animation-box flex w-fit to-left">
             <a
               href="#"
-              class="book-template block shrink-0 w-36 h-56 m-2 hover:opacity-60"
+              class="book-template block self-start shrink-0 w-36 h-56 m-2 hover:opacity-60"
             >
               <img
                 class="book-img-src w-full h-full object-cover"

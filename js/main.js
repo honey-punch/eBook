@@ -160,17 +160,12 @@ createAndPush('./img/section2-10.jpeg');
 
 // bookInfo copy & imgSrc
 const hiddenBox = document.querySelector('.hidden-box');
-const animationBox = document.querySelector('.animation-box');
+let animationBox = document.querySelector('.animation-box');
 const bookTemplate = document.querySelector('.book-template');
 
 function makeTempCopy() {
   let copy = bookTemplate.cloneNode(true);
   animationBox.appendChild(copy);
-}
-
-function makeBoxCopy() {
-  let copy = animationBox.cloneNode(true);
-  hiddenBox.appendChild(copy);
 }
 
 let i = 0;
@@ -180,42 +175,28 @@ while(i < bookInfoList.length - 1) {
   i++;
 }
 
-
 let bookImgSrc = document.querySelectorAll('.book-img-src');
 
 for (let i = 0; i < bookInfoList.length; i++) {
   bookImgSrc[i].src = bookInfoList[i].imgSrc;
 }
 
-// const animationBox = document.querySelectorAll('.animation-box');
-// const bookTemplate = document.querySelectorAll('.bookinfo-bookTemplate');
+function makeBoxCopy() {
+  let copy = animationBox.cloneNode(true);
+  hiddenBox.appendChild(copy);
+}
 
-// function makeCopy() {
-//   for (let i = 0; i < bookTemplate.length; i++) {
-//     let copy = bookTemplate[i].cloneNode(true);
-//     animationBox[i].appendChild(copy);
-//   }
-// }
+let j = 0;
+while(j < 2) {
+  makeBoxCopy();
+  j++;
+}
 
-// let i = 0;
+animationBox = document.querySelectorAll('.animation-box');
 
-// while(i < bookInfoList.length - 1) {
-//   makeCopy();
-//   i++;
-// }
-
-// let bookImgSrc = document.querySelectorAll('.book-img-src');
-
-// // for (let i = 0; i < bookInfoList.length; i++) {
-// //   bookImgSrc[i].src = bookInfoList[i].imgSrc;
-// // }
-
-// for (let i = 0; i < animationBox.length; i++) {
-//   for (let j = 0; j < bookInfoList.length; j++) {
-//   bookImgSrc[j].src = bookInfoList[j].imgSrc;
-//   }
-// }
-
+animationBox[1].classList.remove('to-left');
+animationBox[1].classList.add('to-right');
+animationBox[1].classList.add('self-end');
 
 // scroll 일부 허용 코드
 // const scrollBox = document.querySelector('.animation-box');

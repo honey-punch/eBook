@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.translate-half {
+    transform: translate(-50%, -90%);
+  }
+  .translate-half-x {
+    transform: translate(-50%, 0);
+  }
+  .main-color {
+    color: #364468;
+  }
+  .main-bg-color {
+    background: #364468;
+  }
+  .to-left {
+    animation: to-left 100s linear infinite;
+  }
+  .to-right {
+    animation: to-right 100s linear infinite;
+  }
+  .self-end {
+    align-self: flex-end;
+  }
+  @keyframes to-left {
+    0%,
+    100% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes to-right {
+    0%,
+    100% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(50%);
+    }
+  }
+
+  .book-img {
+    background-image: url('../img/닫힌책.jpg');
+  }
+@media (min-width: 1280px) {
+  .book-img {
+    background-image: url('../img/열린책.jpg');
+  }
+}
