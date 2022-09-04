@@ -688,6 +688,11 @@ video {
   background-color: rgb(255 255 255 / 0.8);
 }
 
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -790,6 +795,16 @@ video {
   transition-duration: 200ms;
 }
 
+.book-img {
+  background-image: url('../img/닫힌책.jpg');
+}
+
+@media (min-width: 1280px) {
+  .book-img {
+    background-image: url('../img/열린책.jpg');
+  }
+}
+
 .translate-half {
   transform: translate(-50%, -90%);
 }
@@ -820,9 +835,14 @@ video {
   align-self: flex-end;
 }
 
+.footer-up {
+  transition : 1s;
+  transform: translateY(-100%);
+}
+
 @-webkit-keyframes to-left {
   0%,
-    100% {
+  100% {
     transform: translateX(0%);
   }
 
@@ -833,7 +853,7 @@ video {
 
 @keyframes to-left {
   0%,
-    100% {
+  100% {
     transform: translateX(0%);
   }
 
@@ -844,7 +864,7 @@ video {
 
 @-webkit-keyframes to-right {
   0%,
-    100% {
+  100% {
     transform: translateX(0%);
   }
 
@@ -855,22 +875,12 @@ video {
 
 @keyframes to-right {
   0%,
-    100% {
+  100% {
     transform: translateX(0%);
   }
 
   50% {
     transform: translateX(50%);
-  }
-}
-
-.book-img {
-  background-image: url('../img/닫힌책.jpg');
-}
-
-@media (min-width: 1280px) {
-  .book-img {
-    background-image: url('../img/열린책.jpg');
   }
 }
 

@@ -9,18 +9,24 @@ window.addEventListener("wheel", (e) => {
 	e.preventDefault();
 },{passive : false});
 
-const sections = document.querySelectorAll("section");
-const clientHeight = window.innerHeight;
+const sections = document.querySelectorAll(".section");
+const windowHeight = window.innerHeight;
+const body = document.querySelector('body')
 
 // wheel event
-let targetScrollY = 0;
 
 window.addEventListener('wheel', (e) => {
   const isUp = Math.sign(e.wheelDelta) < 0;
+  const isBottom = windowHeight + window.scrollY === body.offsetHeight;
 
-  if (Math.abs(e.deltaY) > 25 && window.scrollY == targetScrollY) {
-    
-    isUp ? wheelDown() : wheelUp();
+  if (Math.abs(e.deltaY) > 30) {
+    if (isUp) {
+      wheelDown();
+    } else if (isBottom) {
+      wheelUpFooter();
+    } else {
+      wheelUp();
+    }
   }
 });
 
@@ -29,10 +35,12 @@ function wheelDown() {
     sections[sections.length - 1].getBoundingClientRect().top;
 
   for (let i = 1; i < sections.length; i++) {
-    if (lastElementTop === clientHeight * (sections.length - i)) {
-      scrollTo({ top: clientHeight * i, behavior: 'smooth' });
-
-      targetScrollY += clientHeight;
+    if (lastElementTop === windowHeight * (sections.length - i)) {
+      scrollBy({
+        top: sections[i].clientHeight,
+        behavior: 'smooth'
+      });
+      console.log();
     }
   }
 }
@@ -41,16 +49,21 @@ function wheelUp() {
   const lastElementTop =
     sections[sections.length - 1].getBoundingClientRect().top;
 
-  for (let i = 0; i < sections.length - 1; i++) {
-    if (lastElementTop === clientHeight * i) {
-      scrollTo({
-        top: clientHeight * (sections.length - 2 - i),
+  for (let i = 0; i < sections.length; i++) {
+    if (lastElementTop === windowHeight * i) {
+      scrollBy({
+        top: -sections[i].clientHeight,
         behavior: 'smooth',
       });
-
-      targetScrollY -= clientHeight;
     }
   }
+}
+
+function wheelUpFooter() {
+  scrollTo({
+  top: sections[sections.length - 2].offsetTop,
+  behavior: 'smooth'
+  });
 }
 
 // 디바운싱
