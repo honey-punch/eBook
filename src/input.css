@@ -36,6 +36,9 @@
   transition : 1s;
   transform: translateY(-100%);
 }
+.leading-start-btn {
+  line-height: 48px;
+} 
 
 @keyframes to-left {
   0%,

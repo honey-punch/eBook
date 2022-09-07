@@ -142,12 +142,12 @@ class BookInfo {
   }
 }
 
-const bookInfoList = new Array();
+const bookImgList = new Array();
 
 function createAndPush(imgSrc) {
   const book = new BookInfo(imgSrc);
-  bookInfoList.push(book);
-  return bookInfoList;
+  bookImgList.push(book);
+  return bookImgList;
 }
 
 createAndPush('./img/section2-1.jpeg');
@@ -183,15 +183,15 @@ function makeTempCopy() {
 
 let i = 0;
 
-while(i < bookInfoList.length - 1) {
+while(i < bookImgList.length - 1) {
   makeTempCopy();
   i++;
 }
 
 let bookImgSrc = document.querySelectorAll('.book-img-src');
 
-for (let i = 0; i < bookInfoList.length; i++) {
-  bookImgSrc[i].src = bookInfoList[i].imgSrc;
+for (let i = 0; i < bookImgList.length; i++) {
+  bookImgSrc[i].src = bookImgList[i].imgSrc;
 }
 
 function makeBoxCopy() {
@@ -219,3 +219,5 @@ animationBox[1].classList.add('self-end');
 //   e.stopImmediatePropagation();
 //   e.stopPropagation();
 // });
+
+// section3
