@@ -214,8 +214,14 @@ animationBox[2].classList.add('to-left');
 
 // section3
 // 스크롤 일부 허용
+const bookInfo = document.querySelector('.book-info');
 const bookList = document.querySelector('.book-list');
 
+bookInfo.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+});
 bookList.addEventListener("wheel", function(e){
   e.preventDefault = false;
   e.stopImmediatePropagation();
@@ -224,7 +230,6 @@ bookList.addEventListener("wheel", function(e){
 
 // book list와 book info 연동
 // book info list 생성
-const bookInfo = document.querySelector('.book-info');
 let bookLists = document.querySelector('.book-list li');
 
 class BookInfo {
@@ -286,11 +291,13 @@ bookSubcopy.textContent = bookInfoList[0].bookSubcopy;
 bookStory.textContent = bookInfoList[0].bookStory;
 
 bookLists[0].classList.remove('opacity-50')
+bookLists[0].classList.remove('border-l')
 
 for (let i = 0; i < bookLists.length; i++) {
   bookLists[i].addEventListener('mouseover', () => {
     for (let j = 0; j < bookLists.length; j++) {
       bookLists[j].classList.add('opacity-50');
+      bookLists[j].classList.add('border-l');
     }
     bookImg.src = bookInfoList[i].bookImg;
     bookTitle.textContent = bookInfoList[i].bookTitle;
@@ -299,5 +306,6 @@ for (let i = 0; i < bookLists.length; i++) {
     bookSubcopy.textContent = bookInfoList[i].bookSubcopy;
     bookStory.textContent = bookInfoList[i].bookStory;
     bookLists[i].classList.remove('opacity-50');
+    bookLists[i].classList.remove('border-l');
   })
 }
