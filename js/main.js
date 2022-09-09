@@ -207,9 +207,10 @@ while(j < 2) {
 
 animationBox = document.querySelectorAll('.animation-box');
 
-animationBox[1].classList.remove('to-left');
+animationBox[0].classList.add('to-left');
 animationBox[1].classList.add('to-right');
 animationBox[1].classList.add('self-end');
+animationBox[2].classList.add('to-left');
 
 // section3
 // 스크롤 일부 허용
