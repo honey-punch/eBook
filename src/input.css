@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.book-img {
+.main-img {
   background-image: url('../img/닫힌책.jpg');
 }
 @media (min-width: 1280px) {
-.book-img {
+.main-img {
   background-image: url('../img/열린책.jpg');
 }
 }

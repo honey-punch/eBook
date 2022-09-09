@@ -135,8 +135,8 @@ function wheelUpFooter() {
 // });
 
 // section2
-// bookInfo object & array
-class BookInfo {
+// bookImg object & array
+class BookImg {
   constructor(imgSrc) {
     this.imgSrc = imgSrc;
   }
@@ -145,7 +145,7 @@ class BookInfo {
 const bookImgList = new Array();
 
 function createAndPush(imgSrc) {
-  const book = new BookInfo(imgSrc);
+  const book = new BookImg(imgSrc);
   bookImgList.push(book);
   return bookImgList;
 }
@@ -211,13 +211,92 @@ animationBox[1].classList.remove('to-left');
 animationBox[1].classList.add('to-right');
 animationBox[1].classList.add('self-end');
 
-// scroll 일부 허용 코드
-// const scrollBox = document.querySelector('.animation-box');
-
-// scrollBox.addEventListener("wheel", function(e){
-//   e.preventDefault = false;
-//   e.stopImmediatePropagation();
-//   e.stopPropagation();
-// });
-
 // section3
+// 스크롤 일부 허용
+const bookList = document.querySelector('.book-list');
+
+bookList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+});
+
+// book list와 book info 연동
+// book info list 생성
+const bookInfo = document.querySelector('.book-info');
+let bookLists = document.querySelector('.book-list li');
+
+class BookInfo {
+  constructor(bookImg, bookTitle, bookAuthor, bookPrice, bookSubcopy, bookStory) {
+    this.bookImg = bookImg;
+    this.bookTitle = bookTitle;
+    this.bookAuthor = bookAuthor;
+    this.bookPrice = bookPrice;
+    this.bookSubcopy = bookSubcopy;
+    this.bookStory = bookStory;
+  }
+}
+
+const book1 = new BookInfo('./img/section2-1.jpeg', '예언자', '칼릴 지브란 / 오강남', '8,900원', '노스트라다무스를 뛰어넘는 명수트라다무스의 예언', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book2 = new BookInfo('./img/section2-2.jpeg', '여름비', '마르그리트 뒤라스 / 백수린', '8,900원', '추적이는 여름비 처럼 스며든다', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book3 = new BookInfo('./img/section2-3.jpeg', '지금, 명상', '오기노 준야 / 김지연', '8,900원', '무심코 무리하는 당신에게 전하는 메시지', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book4 = new BookInfo('./img/section2-4.jpeg', '몸짓들', '빌렘 플루서 / 장지철', '8,900원', '숫자 속에 사는 우리들의 처절함', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book5 = new BookInfo('./img/section2-5.jpeg', '우리는 이별을 떠나기로 했어', '천선란 외 4인', '8,900원', '여자들은 이곳이 아닌 다른 별에서, 다른 이야기를 꿈꾼다', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book6 = new BookInfo('./img/section2-6.jpeg', '나를 살리는 말들', '이서원 지음', '8,900원', '너무너무 힘들 때 듣고 싶은 그 한마디', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+
+const bookInfoList = [book1, book2, book3, book4, book5, book6];
+
+function makeListCopy() {
+  let copy = bookLists.cloneNode(true);
+  bookList.appendChild(copy);
+}
+
+let l = 0;
+
+while(l < bookInfoList.length - 1) {
+  makeListCopy();
+  l++;
+}
+
+bookLists = document.querySelectorAll('.book-list li a');
+
+// book info list, book list 연동
+let bookListImg = document.querySelectorAll('.book-list-img');
+let bookListSubcopy = document.querySelectorAll('.book-list-subcopy');
+
+for (let i = 0; i < bookInfoList.length; i++) {
+  bookListImg[i].src = bookInfoList[i].bookImg;
+  bookListSubcopy[i].textContent = bookInfoList[i].bookSubcopy;
+}
+
+// book info list, book list, book info 연동
+let bookImg = document.querySelector('.book-img');
+let bookTitle = document.querySelector('.book-title');
+let bookAuthor = document.querySelector('.book-author');
+let bookPrice = document.querySelector('.book-price');
+let bookSubcopy = document.querySelector('.book-subcopy');
+let bookStory = document.querySelector('.book-story');
+
+bookImg.src = bookInfoList[0].bookImg;
+bookTitle.textContent = bookInfoList[0].bookTitle;
+bookAuthor.textContent = bookInfoList[0].bookAuthor;
+bookPrice.textContent = bookInfoList[0].bookPrice;
+bookSubcopy.textContent = bookInfoList[0].bookSubcopy;
+bookStory.textContent = bookInfoList[0].bookStory;
+
+bookLists[0].classList.remove('opacity-50')
+
+for (let i = 0; i < bookLists.length; i++) {
+  bookLists[i].addEventListener('mouseover', () => {
+    for (let j = 0; j < bookLists.length; j++) {
+      bookLists[j].classList.add('opacity-50');
+    }
+    bookImg.src = bookInfoList[i].bookImg;
+    bookTitle.textContent = bookInfoList[i].bookTitle;
+    bookAuthor.textContent = bookInfoList[i].bookAuthor;
+    bookPrice.textContent = bookInfoList[i].bookPrice;
+    bookSubcopy.textContent = bookInfoList[i].bookSubcopy;
+    bookStory.textContent = bookInfoList[i].bookStory;
+    bookLists[i].classList.remove('opacity-50');
+  })
+}

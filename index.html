@@ -19,6 +19,9 @@
 
     <!-- js -->
     <script src="./js/main.js" defer></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/9dd32a8b92.js" crossorigin="anonymous" defer></script>
   </head>
   <body class="font-noto">
     <!-- header -->
@@ -42,7 +45,7 @@
     <main>
       <!-- section1 -->
       <section class="section h-screen">
-        <div class="w-full h-full book-img bg-center bg-cover">
+        <div class="w-full h-full main-img bg-center bg-cover">
           <p class="absolute bottom-10 right-10 text-xs">
             브라우저 사이즈를 줄이거나 늘려보세요.
           </p>
@@ -85,20 +88,36 @@
           다른 사람들은<br />무엇을 읽고 있을까
         </h1>
         <p class="text-xl leading-snug text-center text-gray-600">
-          카테고리별 인기 순위
+          인기있는 책들을 한눈에
         </p>
         <!-- content box -->
-        <div class="w-full my-10 border box-border flex">
-          <div class="w-9/12 p-10 box-border bg-slate-100">
-            <div class="common-info">
-              <img src="#" alt="book-img" />
-              <h2>예언자</h2>
-              <span class="block">칼릴 지브란 / 오강남</span>
-              <span class="block">9,900원</span>
+        <div class="content-box w-full my-10 border box-border flex overflow-hidden">
+          <!-- book info -->
+          <div class="book-info relative w-9/12 p-10 flex box-border bg-slate-100">
+            <!-- common info -->
+            <div class="common-info w-5/12 mr-8">
+              <img class="book-img mb-6" src="#" alt="book-img" />
+              <h2 class="book-title mb-4 text-xl font-bold"></h2>
+              <span class="book-author block text-sm"></span>
+              <span class="book-price block text-lg font-bold"></span>
+            </div>
+            <!-- story info -->
+            <div class="story-info w-7/12">
+              <a class="block mb-4 text-lg font-bold hover:text-slate-400" href="#">오늘의 eBook ></a>
+              <h3 class="book-subcopy mb-2 font-medium"></h3>
+              <p class="book-story text-sm text-gray-500"></p>
+              <i class="fa-solid fa-arrow-up-from-bracket absolute bottom-10 right-10 cursor-pointer hover:text-slate-400"></i>
             </div>
           </div>
-          <ul class="w-3/12 p-10 box-border bg-slate-200">
-            <li></li>
+          
+          <!-- book list -->
+          <ul class="book-list w-3/12 overflow-scroll">
+            <li>
+              <a class="block flex h-32 p-4 bg-slate-100 border box-border text-ellipsis opacity-50" href="#">
+                <img class="book-list-img w-20 mr-4 object-cover" src="#" alt="book-img">
+                <p class="book-list-subcopy font-medium overflow-hidden text-ellipsis"></p>
+              </a>
+            </li>
           </ul>
         </div>
       </section>
