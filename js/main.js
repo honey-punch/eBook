@@ -194,6 +194,7 @@ for (let i = 0; i < bookImgList.length; i++) {
   bookImgSrc[i].src = bookImgList[i].imgSrc;
 }
 
+
 function makeBoxCopy() {
   let copy = animationBox.cloneNode(true);
   hiddenBox.appendChild(copy);
@@ -276,12 +277,12 @@ for (let i = 0; i < bookInfoList.length; i++) {
 }
 
 // book info list, book list, book info 연동
-let bookImg = document.querySelector('.book-img');
-let bookTitle = document.querySelector('.book-title');
-let bookAuthor = document.querySelector('.book-author');
-let bookPrice = document.querySelector('.book-price');
-let bookSubcopy = document.querySelector('.book-subcopy');
-let bookStory = document.querySelector('.book-story');
+const bookImg = document.querySelector('.book-img');
+const bookTitle = document.querySelector('.book-title');
+const bookAuthor = document.querySelector('.book-author');
+const bookPrice = document.querySelector('.book-price');
+const bookSubcopy = document.querySelector('.book-subcopy');
+const bookStory = document.querySelector('.book-story');
 
 bookImg.src = bookInfoList[0].bookImg;
 bookTitle.textContent = bookInfoList[0].bookTitle;
