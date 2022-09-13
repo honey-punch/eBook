@@ -19,7 +19,7 @@ window.addEventListener('wheel', (e) => {
   const isUp = Math.sign(e.wheelDelta) < 0;
   const isBottom = windowHeight + window.scrollY === body.offsetHeight;
 
-  if (Math.abs(e.deltaY) > 30) {
+  if (Math.abs(e.deltaY) > 27) {
     if (isUp) {
       wheelDown();
     } else if (isBottom) {
@@ -81,6 +81,20 @@ function wheelUpFooter() {
 //   }, 40)
 // });
 
+// 디바운싱2
+// let curIndex = 0;
+// let wheelTimer;
+// window.addEventListener("wheel", function(e) {
+//   clearTimeout(wheelTimer);
+//   wheelTimer = setTimeout(function() {
+//   	if(e.deltaY < 0) {
+//       doScroll(--curIndex);
+//     } else {
+//       doScroll(++curIndex);
+//     }
+//   }, 50);
+// });
+
 //스로틀링
 // let timer;
 // window.addEventListener("wheel", function(e) {
@@ -95,32 +109,6 @@ function wheelUpFooter() {
 //     }, 500)
 //   }
 // });
-
-// 또다른 디바운싱 함수
-// let curIndex = 0;
-// let wheelTimer;
-// window.addEventListener("wheel", function(e) {
-//   clearTimeout(wheelTimer);
-//   wheelTimer = setTimeout(function() {
-//   	if(e.deltaY < 0) {
-//       doScroll(--curIndex);
-//     } else {
-//       doScroll(++curIndex);
-//     }
-//   }, 50);
-// });
-
-// function doScroll(i) {
-//   console.log(i);
-//   i < 0 ? i = 0 : i = i;
-//   i > sections.length - 1 ? i = sections.length - 1 : i = i;
-
-//   curIndex = i;
-  
-//   sections[curIndex].scrollIntoView({
-//     block: "start", inline: "start", behavior: "smooth"
-//   });  	
-// }
 
 // 스크롤시 header 안보이게
 // const header = document.querySelector('header');
