@@ -190,10 +190,9 @@ while(i < bookImgList.length - 1) {
 
 let bookImgSrc = document.querySelectorAll('.book-img-src');
 
-for (let i = 0; i < bookImgList.length; i++) {
+bookImgSrc.forEach((e, i) => {
   bookImgSrc[i].src = bookImgList[i].imgSrc;
-}
-
+})
 
 function makeBoxCopy() {
   let copy = animationBox.cloneNode(true);
@@ -271,10 +270,10 @@ bookLists = document.querySelectorAll('.book-list li a');
 let bookListImg = document.querySelectorAll('.book-list-img');
 let bookListSubcopy = document.querySelectorAll('.book-list-subcopy');
 
-for (let i = 0; i < bookInfoList.length; i++) {
+bookInfoList.forEach((e, i) => {
   bookListImg[i].src = bookInfoList[i].bookImg;
   bookListSubcopy[i].textContent = bookInfoList[i].bookSubcopy;
-}
+})
 
 // book info list, book list, book info 연동
 const bookImg = document.querySelector('.book-img');
@@ -294,12 +293,12 @@ bookStory.textContent = bookInfoList[0].bookStory;
 bookLists[0].classList.remove('opacity-50')
 bookLists[0].classList.remove('border-l')
 
-for (let i = 0; i < bookLists.length; i++) {
+bookLists.forEach((e, i) => {
   bookLists[i].addEventListener('mouseover', () => {
-    for (let j = 0; j < bookLists.length; j++) {
+    bookLists.forEach((e, j) => {
       bookLists[j].classList.add('opacity-50');
       bookLists[j].classList.add('border-l');
-    }
+    })
     bookImg.src = bookInfoList[i].bookImg;
     bookTitle.textContent = bookInfoList[i].bookTitle;
     bookAuthor.textContent = bookInfoList[i].bookAuthor;
@@ -309,4 +308,4 @@ for (let i = 0; i < bookLists.length; i++) {
     bookLists[i].classList.remove('opacity-50');
     bookLists[i].classList.remove('border-l');
   })
-}
+})
