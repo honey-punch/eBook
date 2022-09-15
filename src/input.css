@@ -38,7 +38,10 @@
 }
 .leading-start-btn {
   line-height: 48px;
-} 
+}
+.content-box {
+  height: 720px;
+}
 
 @keyframes to-left {
   0%,
