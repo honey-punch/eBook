@@ -29,7 +29,7 @@
   </head>
   <body class="font-noto">
     <!-- header -->
-    <header class="fixed w-full h-16 bg-white/80 z-50">
+    <header class="fixed w-full h-16 bg-white/80 border-b z-50">
       <div class="flex h-full px-24 mx-auto my-0 justify-between items-center">
         <div class="w-20">
           <img src="./img/logo.png" alt="logo" />
@@ -58,7 +58,7 @@
 
       <!-- section2 -->
       <section
-        class="section w-full h-screen flex flex-col items-center px-20 pt-32 pb-20"
+        class="section w-full h-screen flex flex-col items-center px-20 pt-28 pb-20"
       >
         <h1 class="mb-6 text-5xl leading-tight text-center font-bold">
           하루에 20권<br />8,900원
@@ -67,7 +67,9 @@
           매일 업데이트 되는 20권을 할인된 가격에
         </p>
         <!-- content box -->
-        <div class="hidden-box flex flex-col w-full my-10 overflow-hidden">
+        <div
+          class="content-box-height hidden-box flex flex-col w-full my-10 overflow-hidden"
+        >
           <!-- animation box -->
           <div class="animation-box flex w-fit">
             <a
@@ -86,7 +88,7 @@
 
       <!-- section3 -->
       <section
-        class="section w-full h-screen flex flex-col items-center px-20 pt-32 pb-20"
+        class="section w-full h-screen flex flex-col items-center px-20 pt-28 pb-20"
       >
         <h1 class="mb-6 text-5xl leading-tight text-center font-bold">
           다른 사람들은<br />무엇을 읽고 있을까
@@ -95,44 +97,54 @@
           인기있는 책들을 한눈에
         </p>
         <!-- content box -->
-        <div class="content-box w-full my-10 border flex overflow-hidden">
+        <div
+          class="content-box-height w-full my-10 border flex overflow-hidden"
+        >
           <!-- book info -->
           <div
-            class="book-info relative w-5/6 p-10 flex box-border bg-slate-100 overflow-scroll"
+            class="book-info relative w-full p-10 flex box-border bg-slate-100 overflow-scroll"
           >
+            <!-- book img -->
+            <a
+              class="block w-max h-full mr-12 box-border hover:opacity-60"
+              href="#"
+            >
+              <img
+                class="book-img w-full h-full object-cover"
+                src="#"
+                alt="book-img"
+              />
+            </a>
             <!-- common info -->
-            <div class="common-info w-1/3 mr-8 box-border">
-              <a class="block mb-6 hover:opacity-60" href="#">
-                <img class="book-img object-cover" src="#" alt="book-img" />
-              </a>
-              <h2 class="book-title mb-4 text-xl font-bold"></h2>
-              <span class="book-author block text-sm"></span>
-              <span
-                class="book-price block pb-10 text-lg font-bold overflow-hidden"
-              ></span>
-            </div>
-            <!-- story info -->
-            <div class="story-info w-2/3 box-border">
-              <a
-                class="block mb-4 text-lg font-bold hover:text-slate-400"
-                href="#"
-                >오늘의 eBook ></a
-              >
-              <h3 class="book-subcopy mb-2 font-medium"></h3>
-              <p
-                class="book-story pb-10 text-sm text-gray-500 overflow-hidden"
-              ></p>
-              <i
-                class="fa-solid fa-arrow-up-from-bracket absolute bottom-10 right-10 cursor-pointer hover:text-slate-400"
-              ></i>
+            <div class="common-info flex flex-col justify-between box-border">
+              <div class="top">
+                <a
+                  class="block mb-4 text-lg font-bold hover:text-slate-400"
+                  href="#"
+                  >오늘의 eBook ></a
+                >
+                <span class="book-subcopy block mb-2 font-medium"></span>
+                <p class="book-story text-sm text-gray-500 overflow-hidden"></p>
+              </div>
+
+              <div class="bottom">
+                <span class="book-title block mb-4 text-xl font-bold"></span>
+                <span class="book-author block text-sm"></span>
+                <span
+                  class="book-price block text-lg font-bold overflow-hidden"
+                ></span>
+                <i
+                  class="fa-solid fa-arrow-up-from-bracket absolute bottom-10 right-10 cursor-pointer hover:text-slate-400"
+                ></i>
+              </div>
             </div>
           </div>
 
           <!-- book list -->
-          <ul class="book-list w-1/6 overflow-scroll">
+          <ul class="book-list w-72 overflow-scroll">
             <li>
               <a
-                class="flex h-32 p-4 bg-slate-100 box-border border-l opacity-50"
+                class="flex h-36 p-4 bg-slate-100 box-border border-l opacity-40"
                 href="#"
               >
                 <img
@@ -151,7 +163,7 @@
 
       <!-- section4 -->
       <section
-        class="section h-screen flex flex-col items-center px-20 pt-32 pb-20"
+        class="section h-screen flex flex-col items-center px-20 pt-28 pb-20"
       >
         <h1 class="mb-6 text-5xl leading-tight text-center font-bold">
           언제든지 해지 가능<br />첫 달 무료 체험
@@ -159,7 +171,7 @@
         <p class="text-xl leading-snug text-center text-gray-600">
           당신에게 맞는 요금제 찾기
         </p>
-        <div class="content-box w-full h-full my-10"></div>
+        <div class="content-box-height w-full h-full my-10"></div>
       </section>
     </main>
 

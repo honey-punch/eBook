@@ -202,14 +202,8 @@ animationBox[2].classList.add('to-left');
 
 // section3
 // 스크롤 일부 허용
-const bookInfo = document.querySelector('.book-info');
 const bookList = document.querySelector('.book-list');
 
-bookInfo.addEventListener("wheel", function(e){
-  e.preventDefault = false;
-  e.stopImmediatePropagation();
-  e.stopPropagation();
-});
 bookList.addEventListener("wheel", function(e){
   e.preventDefault = false;
   e.stopImmediatePropagation();
@@ -231,16 +225,16 @@ class BookInfo {
   }
 }
 
-const book1 = new BookInfo('./img/section2-1.jpeg', '예언자', '칼릴 지브란 / 오강남', '8,900원', '노스트라다무스를 뛰어넘는 명수트라다무스의 예언 『예언자』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book2 = new BookInfo('./img/section2-2.jpeg', '여름비', '마르그리트 뒤라스 / 백수린', '8,900원', '추적이는 여름비 처럼 스며든다 『여름비』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book3 = new BookInfo('./img/section2-3.jpeg', '지금, 명상', '오기노 준야 / 김지연', '8,900원', '무심코 무리하는 당신에게 전하는 메시지 『지금, 명상』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book4 = new BookInfo('./img/section2-4.jpeg', '몸짓들', '빌렘 플루서 / 장지철', '8,900원', '숫자 속에 사는 우리들의 처절함 『몸짓들』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book5 = new BookInfo('./img/section2-5.jpeg', '우리는 이별을 떠나기로 했어', '천선란 외 4인', '8,900원', '여자들은 이곳이 아닌 다른 별에서, 다른 이야기를 꿈꾼다 『우리는 이별을 떠나기로 했어』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book6 = new BookInfo('./img/section2-6.jpeg', '나를 살리는 말들', '이서원 지음', '8,900원', '너무너무 힘들 때 듣고 싶은 그 한마디 『나를 살리는 말들』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book7 = new BookInfo('./img/section2-7.jpeg', '우리 나무 이름 사전', '박상진 지음', '8,900원', '나무에게서 찾는 삶의 용기, 힘이 되는 우리들의 버팀목 『우리 나무 이름 사전』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book8 = new BookInfo('./img/section2-8.jpeg', '불안이라는 위안', '장지철 지음', '8,900원', '마음이 도망칠 때 되뇌이는 다정한 주문, 불안에게 말을 걸면 그것은 위안이 된다 『불안이라는 위안』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book9 = new BookInfo('./img/section2-9.jpeg', 'GREEN ENERY', '박현우 지음', '8,900원', '초록색, 노란색, 하늘색, 그리고 다시 초록색, 노란색, 하늘색 『GREEN ENERY』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
-const book10 = new BookInfo('./img/section2-10.jpeg', '사라지는 것은 아쉬움을 남긴다', '김두얼 지음', '8,900원', '경제, 역사, 제도에 대한 단상, 사라지는 것에 대한 고찰 『사라지는 것은 아쉬움을 남긴다』', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book1 = new BookInfo('./img/section2-1.jpeg', '예언자', '칼릴 지브란 / 오강남', '8,900원', "노스트라다무스를 뛰어넘는 '명수트라다무스'의 예언", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book2 = new BookInfo('./img/section2-2.jpeg', '여름비', '마르그리트 뒤라스 / 백수린', '8,900원', "'추적이는 여름비 처럼 스며든다!' - 평론가 장지철", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book3 = new BookInfo('./img/section2-3.jpeg', '지금, 명상', '오기노 준야 / 김지연', '8,900원', "무심코 무리하는 당신에게 전하는 메시지", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book4 = new BookInfo('./img/section2-4.jpeg', '몸짓들', '빌렘 플루서 / 장지철', '8,900원', "차가운 숫자들 속에 사는 우리들의 처절함", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book5 = new BookInfo('./img/section2-5.jpeg', '우리는 이별을 떠나기로 했어', '천선란 외 4인', '8,900원', "이곳이 아닌 다른 별에서, 다른 이야기를 꿈꾼다", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book6 = new BookInfo('./img/section2-6.jpeg', '나를 살리는 말들', '이서원 지음', '8,900원', "너무너무 힘들 때 듣고 싶은 그 한마디 - 이서원", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book7 = new BookInfo('./img/section2-7.jpeg', '우리 나무 이름 사전', '박상진 지음', '8,900원', "나무에게서 찾는 삶의 용기『물고기 사전』 박상진 신작!", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book8 = new BookInfo('./img/section2-8.jpeg', '불안이라는 위안', '장지철 지음', '8,900원', "마음이 도망칠 때 되뇌이는 다정한 주문 '마음껏 불안해 하자'", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book9 = new BookInfo('./img/section2-9.jpeg', 'GREEN ENERY', '박현우 지음', '8,900원', "초록색, 노란색, 하늘색 다시 초록색, 노란색, 하늘색", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
+const book10 = new BookInfo('./img/section2-10.jpeg', '사라지는 것은 아쉬움을 남긴다', '김두얼 지음', '8,900원', "경제, 역사, 제도에 대한 단상, 사라지는 것에 대한 고찰", 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus accusamus pariatur asperiores labore consequatur rem amet repudiandae eum. Enim, id. Eveniet veniam illo temporibus maiores dolorum quam quibusdam tempora odio.');
 
 const bookInfoList = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10];
 
@@ -282,13 +276,13 @@ bookPrice.textContent = bookInfoList[0].bookPrice;
 bookSubcopy.textContent = bookInfoList[0].bookSubcopy;
 bookStory.textContent = bookInfoList[0].bookStory;
 
-bookLists[0].classList.remove('opacity-50')
+bookLists[0].classList.remove('opacity-40')
 bookLists[0].classList.remove('border-l')
 
 bookLists.forEach((e, i) => {
   bookLists[i].addEventListener('mouseover', () => {
     bookLists.forEach((e, j) => {
-      bookLists[j].classList.add('opacity-50');
+      bookLists[j].classList.add('opacity-40');
       bookLists[j].classList.add('border-l');
     })
     bookImg.src = bookInfoList[i].bookImg;
@@ -297,7 +291,7 @@ bookLists.forEach((e, i) => {
     bookPrice.textContent = bookInfoList[i].bookPrice;
     bookSubcopy.textContent = bookInfoList[i].bookSubcopy;
     bookStory.textContent = bookInfoList[i].bookStory;
-    bookLists[i].classList.remove('opacity-50');
+    bookLists[i].classList.remove('opacity-40');
     bookLists[i].classList.remove('border-l');
   })
 })
