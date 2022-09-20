@@ -98,12 +98,10 @@
         </p>
         <!-- content box -->
         <div
-          class="content-box-height w-full my-10 border flex overflow-hidden"
+          class="content-box-height w-full max-w-6xl my-10 border flex overflow-hidden"
         >
           <!-- book info -->
-          <div
-            class="book-info relative p-10 flex box-border bg-slate-100 overflow-scroll"
-          >
+          <div class="book-info relative p-10 flex box-border bg-slate-100">
             <!-- book img -->
             <a
               class="block mr-12 shrink-0 h-full box-border hover:opacity-60"
@@ -141,14 +139,14 @@
           </div>
 
           <!-- book list -->
-          <ul class="book-list w-72 overflow-scroll">
+          <ul class="book-list w-60 shrink-0 overflow-x-scroll">
             <li>
               <a
                 class="flex h-36 p-4 bg-slate-100 box-border border-l opacity-40"
                 href="#"
               >
                 <img
-                  class="book-list-img mr-4 object-cover"
+                  class="book-list-img mr-4 shrink-0 object-cover"
                   src="#"
                   alt="book-img"
                 />
@@ -166,12 +164,31 @@
         class="section h-screen flex flex-col items-center px-20 pt-28 pb-20"
       >
         <h1 class="mb-6 text-5xl leading-tight text-center font-bold">
-          언제든지 해지 가능<br />첫 달 무료 체험
+          첫 달은 무료로!<br />언제든지 해지 가능
         </h1>
         <p class="text-xl leading-snug text-center text-gray-600">
           당신에게 맞는 요금제 찾기
         </p>
-        <div class="content-box-height w-full h-full my-10"></div>
+        <div class="content-box-height w-full max-w-6xl my-10 overflow-hidden">
+          <div class="rate-plan-box flex justify-between">
+            <div class="w-72 h-96 rounded-3xl bg-slate-200">
+              <h2 class="">BASIC</h2>
+            </div>
+            <div class="w-72 h-96 rounded-3xl bg-slate-300">
+              <h2 class="">STANDARD</h2>
+            </div>
+            <div class="w-72 h-96 rounded-3xl bg-slate-400">
+              <h2 class="">PREMIUM</h2>
+            </div>
+          </div>
+          <div class="description mt-20">
+            <p class="text-center">
+              요금제, 지불 방식을 선택하면 첫 달 무료이용 후 자동 결제되는
+              시스템
+            </p>
+            <p class="text-center">결제되어도 사용 이력이 없으면 100% 환불!</p>
+          </div>
+        </div>
       </section>
     </main>
 
