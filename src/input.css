@@ -32,10 +32,6 @@
 .self-end {
   align-self: flex-end;
 }
-.footer-up {
-  transition : 1s;
-  transform: translateY(-100%);
-}
 .leading-start-btn {
   line-height: 48px;
 }
