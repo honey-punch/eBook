@@ -38,7 +38,7 @@
           <a href="#" class="text-sm p-2">관심도서</a>
           <a
             href="#"
-            class="block w-20 h-8 text-center leading-8 main-bg-color hover:bg-gray-500 duration-200 text-white text-sm rounded-full"
+            class="block w-20 h-8 text-center leading-8 bg-main-color hover:bg-gray-500 duration-200 text-white text-sm rounded-full"
             >로그인</a
           >
         </nav>
@@ -172,13 +172,13 @@
         <!-- content box -->
         <div class="content-box-height w-full max-w-6xl my-10 overflow-hidden">
           <!-- rate-plan -->
-          <div class="rate-plan-box flex justify-between">
+          <div class="rate-plan-area flex justify-between">
             <!-- basic -->
             <div
-              class="w-72 h-80 border-2 p-6 hover:border-slate-500 duration-500"
+              class="rate-plan-box relative w-72 h-80 p-6 border hover:border-slate-500 duration-200"
             >
-              <h2 class="text-center text-lg font-bold">BASIC</h2>
-              <p class="my-4">월 <b class="text-xl">8,900원</b></p>
+              <h2 class="text-center text-lg text-gray-400 mb-6">BASIC</h2>
+              <p class="mb-2">월 <b class="text-xl">8,900원</b></p>
               <div class="dicount flex items-center">
                 <p class="mr-2 text-sm text-gray-500 line-through">106,800원</p>
                 <span
@@ -186,18 +186,20 @@
                   >10% 할인</span
                 >
               </div>
-              <p class="mb-4">연 <b class="text-2xl">96,120원</b></p>
+              <p class="mb-4">연 <b class="text-3xl">96,120원</b></p>
               <div class="flex mb-2 main-color">
                 <i class="fa-regular fa-circle-check mr-1"></i>
                 <p class="text-xs">전자책</p>
               </div>
+
+              <a class="rate-plan-btn opacity-0 absolute bottom-6 left-1/2 translate-half-x w-32 my-0 mx-auto p-2 bg-gray-300 text-center text-white duration-200" href="#">요금제 선택</a>
             </div>
             <!-- standard -->
             <div
-              class="w-72 h-80 border-2 p-6 hover:border-slate-500 duration-500"
+              class="rate-plan-box relative w-72 h-80 p-6 border hover:border-slate-500 duration-200"
             >
-              <h2 class="text-center text-lg font-bold">STANDARD</h2>
-              <p class="my-4">월 <b class="text-xl">11,900원</b></p>
+              <h2 class="text-center text-lg text-gray-400 mb-6">STANDARD</h2>
+              <p class="mb-2">월 <b class="text-xl">11,900원</b></p>
               <div class="dicount flex items-center">
                 <p class="mr-2 text-sm text-gray-500 line-through">142,800원</p>
                 <span
@@ -205,7 +207,7 @@
                   >13% 할인</span
                 >
               </div>
-              <p class="mb-4">연 <b class="text-2xl">124,230원</b></p>
+              <p class="mb-4">연 <b class="text-3xl">124,230원</b></p>
               <div class="flex mb-2 main-color">
                 <i class="fa-regular fa-circle-check mr-1"></i>
                 <p class="text-xs">전자책</p>
@@ -214,13 +216,15 @@
                 <i class="fa-regular fa-circle-check mr-1"></i>
                 <p class="text-xs">오디오북</p>
               </div>
+
+              <a class="rate-plan-btn opacity-0 absolute bottom-6 left-1/2 translate-half-x w-32 my-0 mx-auto p-2 bg-gray-300 text-center text-white duration-200" href="#">요금제 선택</a>
             </div>
             <!-- premium -->
             <div
-              class="w-72 h-80 border-2 p-6 hover:border-slate-500 duration-500"
+              class="rate-plan-box relative w-72 h-80 p-6 border hover:border-slate-600 duration-200"
             >
-              <h2 class="text-center text-lg font-bold">PREMIUM</h2>
-              <p class="my-4">월 <b class="text-xl">13,900원</b></p>
+              <h2 class="text-center text-lg text-gray-400 mb-6">PREMIUM</h2>
+              <p class="mb-2">월 <b class="text-xl">13,900원</b></p>
               <div class="dicount flex items-center">
                 <p class="mr-2 text-sm text-gray-500 line-through">166,800원</p>
                 <span
@@ -228,7 +232,7 @@
                   >16% 할인</span
                 >
               </div>
-              <p class="mb-4">연 <b class="text-2xl">140,110원</b></p>
+              <p class="mb-4">연 <b class="text-3xl">140,110원</b></p>
               <div class="flex mb-2 main-color">
                 <i class="fa-regular fa-circle-check mr-1"></i>
                 <p class="text-xs">전자책</p>
@@ -239,8 +243,10 @@
               </div>
               <div class="flex mb-2 main-color">
                 <i class="fa-regular fa-circle-check mr-1"></i>
-                <p class="text-xs">2달에 한번 종이책 or 웨이브북스 굿즈 증정</p>
+                <p class="text-xs">한달에 한번 웨이브북스 굿즈 증정</p>
               </div>
+
+              <a class="rate-plan-btn opacity-0 absolute bottom-6 left-1/2 translate-half-x w-32 my-0 mx-auto p-2 bg-gray-300 text-center text-white duration-200" href="#">요금제 선택</a>
             </div>
           </div>
 
@@ -261,7 +267,7 @@
 
     <!-- start-button -->
     <a
-      class="block fixed left-1/2 translate-half-x bottom-10 w-72 h-10 text-center leading-9 main-bg-color hover:bg-gray-500 z-50 duration-200 text-white text-lg rounded-full cursor-pointer"
+      class="block fixed left-1/2 translate-half-x bottom-10 w-72 h-10 text-center leading-9 bg-main-color hover:bg-gray-500 z-50 duration-200 text-white text-lg rounded-full cursor-pointer"
       >첫 달 <b>무료</b>로 시작하기</a
     >
   </body>

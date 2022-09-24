@@ -295,3 +295,33 @@ bookLists.forEach((e, i) => {
     bookLists[i].classList.remove('border-l');
   })
 })
+
+// section4
+const ratePlanBox = document.querySelectorAll('.rate-plan-box');
+const ratePlanBtn = document.querySelectorAll('.rate-plan-btn');
+
+ratePlanBox.forEach((e, i) => {
+  ratePlanBox[i].addEventListener('mouseover', () => {
+    ratePlanBtn[i].classList.remove('opacity-0');
+    ratePlanBtn[i].classList.add('opacity-100');
+  });
+});
+ratePlanBox.forEach((e, i) => {
+  ratePlanBox[i].addEventListener('mouseout', () => {
+    ratePlanBtn[i].classList.remove('opacity-100');
+    ratePlanBtn[i].classList.add('opacity-0');
+  });
+});
+
+ratePlanBtn.forEach((e, i) => {
+  ratePlanBtn[i].addEventListener('mouseover', () => {
+    ratePlanBtn[i].classList.add('bg-main-color');
+  });
+});
+ratePlanBtn.forEach((e, i) => {
+  ratePlanBtn[i].addEventListener('mouseout', () => {
+    ratePlanBtn[i].classList.remove('bg-main-color');
+  });
+});
+
+
