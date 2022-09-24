@@ -299,17 +299,20 @@ bookLists.forEach((e, i) => {
 // section4
 const ratePlanBox = document.querySelectorAll('.rate-plan-box');
 const ratePlanBtn = document.querySelectorAll('.rate-plan-btn');
+const ratePlanName = document.querySelectorAll('.rate-plan-box h2')
 
 ratePlanBox.forEach((e, i) => {
   ratePlanBox[i].addEventListener('mouseover', () => {
     ratePlanBtn[i].classList.remove('opacity-0');
     ratePlanBtn[i].classList.add('opacity-100');
+    ratePlanName[i].classList.add('main-color');
   });
 });
 ratePlanBox.forEach((e, i) => {
   ratePlanBox[i].addEventListener('mouseout', () => {
     ratePlanBtn[i].classList.remove('opacity-100');
     ratePlanBtn[i].classList.add('opacity-0');
+    ratePlanName[i].classList.remove('main-color');
   });
 });
 
