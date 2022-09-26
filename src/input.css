@@ -23,6 +23,9 @@
 .bg-main-color {
   background: #364468;
 }
+.hover-border-main-color:hover {
+  border-color: #364468;
+}
 .to-left {
   animation: to-left 80s linear infinite;
 }

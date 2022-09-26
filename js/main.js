@@ -327,4 +327,13 @@ ratePlanBtn.forEach((e, i) => {
   });
 });
 
+// section5
+const qnaLists = document.querySelector('.qna-list li');
+const qnaIcon = document.querySelector('.qna-list i');
+const answer = document.querySelector('.answer');
 
+qnaLists.addEventListener('click', () => {
+  qnaLists.classList.toggle('h-56');
+  qnaIcon.classList.toggle('fa-angle-up');
+  answer.classList.toggle('opacity-0');
+});
