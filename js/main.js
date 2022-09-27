@@ -297,6 +297,14 @@ bookLists.forEach((e, i) => {
 })
 
 // section4
+const ratePlanArea = document.querySelector('.rate-plan-area');
+
+ratePlanArea.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+});
+
 const ratePlanBox = document.querySelectorAll('.rate-plan-box');
 const ratePlanBtn = document.querySelectorAll('.rate-plan-btn');
 const ratePlanName = document.querySelectorAll('.rate-plan-box h2')
@@ -328,12 +336,38 @@ ratePlanBtn.forEach((e, i) => {
 });
 
 // section5
-const qnaLists = document.querySelector('.qna-list li');
-const qnaIcon = document.querySelector('.qna-list i');
-const answer = document.querySelector('.answer');
+const qnaList = document.querySelector('.qna-list');
 
-qnaLists.addEventListener('click', () => {
-  qnaLists.classList.toggle('h-56');
-  qnaIcon.classList.toggle('fa-angle-up');
-  answer.classList.toggle('opacity-0');
+qnaList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
+  e.stopPropagation();
 });
+
+const qnaLists = document.querySelectorAll('.qna-list li');
+const qnaIcon = document.querySelectorAll('.qna-list i');
+
+// qnaLists.forEach((e, i) => {
+//   qnaLists[i].addEventListener('click', () => {
+//     qnaLists[i].classList.toggle('h-56');
+//     qnaIcon[i].classList.toggle('fa-angle-up');
+//   });
+// })
+
+qnaLists.forEach((e, i) => {
+  qnaLists[i].addEventListener('click', () => {
+    qnaLists.forEach((e, j) => {
+      qnaLists[j].classList.remove('h-56');
+      qnaIcon[j].classList.remove('fa-angle-up');
+    })
+    qnaLists[i].classList.add('h-56');
+    qnaIcon[i].classList.add('fa-angle-up');
+  })
+});
+
+qnaLists.forEach((e, i) => {
+  qnaLists[i].addEventListener('click', () => {
+    qnaLists[i].classList.add('h-56');
+    qnaIcon[i].classList.add('fa-angle-up');
+  })
+})
