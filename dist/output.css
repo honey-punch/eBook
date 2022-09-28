@@ -688,16 +688,12 @@ video {
   height: 24rem;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-64 {
-  height: 16rem;
-}
-
 .h-72 {
   height: 18rem;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .w-full {
@@ -818,11 +814,6 @@ video {
 
 .border-t {
   border-top-width: 1px;
-}
-
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .border-zinc-500 {
@@ -1052,10 +1043,6 @@ video {
   transition-duration: 200ms;
 }
 
-.duration-1000 {
-  transition-duration: 1000ms;
-}
-
 .main-img {
   background-image: url('../img/닫힌책.jpg');
 }
@@ -1115,7 +1102,7 @@ video {
   }
 
   50% {
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
 }
 
@@ -1126,7 +1113,7 @@ video {
   }
 
   50% {
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
 }
 
@@ -1137,7 +1124,7 @@ video {
   }
 
   50% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
 }
 
@@ -1148,13 +1135,8 @@ video {
   }
 
   50% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
-}
-
-.hover\:bg-zinc-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(113 113 122 / var(--tw-bg-opacity));
 }
 
 .hover\:text-slate-500:hover {
@@ -1172,14 +1154,10 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.hover\:opacity-50:hover {
-  opacity: 0.5;
+.hover\:opacity-70:hover {
+  opacity: 0.7;
 }
 
 .hover\:opacity-60:hover {
   opacity: 0.6;
-}
-
-.hover\:opacity-70:hover {
-  opacity: 0.7;
 }

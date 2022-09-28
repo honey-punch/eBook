@@ -48,7 +48,7 @@
     transform: translateX(0%);
   }
   50% {
-    transform: translateX(-30%);
+    transform: translateX(-15%);
   }
 }
 @keyframes to-right {
@@ -57,6 +57,6 @@
     transform: translateX(0%);
   }
   50% {
-    transform: translateX(30%);
+    transform: translateX(15%);
   }
 }
