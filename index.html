@@ -38,7 +38,7 @@
           <a href="#" class="text-sm p-2">관심도서</a>
           <a
             href="#"
-            class="block w-20 h-8 text-center leading-8 bg-main-color hover:text-slate-500 duration-200 text-white text-sm rounded-full"
+            class="block w-20 h-8 text-center leading-8 bg-main-color hover:opacity-70 duration-200 text-white text-sm rounded-full"
             >로그인</a
           >
         </nav>
@@ -349,13 +349,18 @@
             >
               <!-- question -->
               <div class="flex justify-between items-center">
-                <span class="font-bold text-xl">환불도 가능한가요?</span>
+                <span class="font-bold text-xl"
+                  >도중에 해지 가능한가요? 수수료는 어떻게 되나요?</span
+                >
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <!-- answer -->
               <div class="answer whitespace-normal">
                 <div class="w-full my-6 border-t"></div>
-                <span>당근빠따죠. 쌉가능입니다.</span>
+                <span
+                  >구독 중에 해지를 하시면 해당월까지 이용하시고 다음달부터 자동
+                  결제가 되지 않습니다.<br />수수료는 없습니다.</span
+                >
               </div>
             </li>
 
@@ -365,13 +370,20 @@
             >
               <!-- question -->
               <div class="flex justify-between items-center">
-                <span class="font-bold text-xl">환불도 가능한가요?</span>
+                <span class="font-bold text-xl"
+                  >오디오북은 어떻게 이용하나요?</span
+                >
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <!-- answer -->
               <div class="answer whitespace-normal">
                 <div class="w-full my-6 border-t"></div>
-                <span>당근빠따죠. 쌉가능입니다.</span>
+                <span
+                  >STANDARD 이상의 멤버십을 결제하신 고객님은 전자책 페이지 우측
+                  상단에 헤드폰 마크가 생겼을 것입니다.<br />
+                  마크를 클릭하면 오디오북이 시작되며 전자책의 페이지는 자동으로
+                  넘어갑니다.</span
+                >
               </div>
             </li>
           </ul>
@@ -380,11 +392,76 @@
     </main>
 
     <!-- footer -->
-    <footer class="section h-56 bg-zinc-200"></footer>
+    <footer
+      class="section h-72 bg-zinc-200 flex flex-col items-center px-20 py-10 text-zinc-500 text-sm"
+    >
+      <!-- content box -->
+      <div class="w-full max-w-6xl">
+        <div
+          class="pb-2 mb-2 flex justify-between items-center border-b border-zinc-500"
+        >
+          <ul class="flex">
+            <li class="mr-4 hover:text-black">
+              <a href="#">회사소개 ></a>
+            </li>
+            <li class="mr-4 hover:text-black">
+              <a href="#">이용약관 ></a>
+            </li>
+            <li class="mr-4 hover:text-black">
+              <a href="#">개인정보처리방침 ></a>
+            </li>
+            <li class="mr-4 hover:text-black">
+              <a href="#">청소년보호정책 ></a>
+            </li>
+            <li class="mr-4 hover:text-black">
+              <a href="#">고객센터 ></a>
+            </li>
+            <li class="mr-4 hover:text-black">
+              <a href="#">콘텐츠 제휴문의 ></a>
+            </li>
+          </ul>
+          <div class="sns text-xl text-zinc-500">
+            <a class="p-px mx-1 hover:text-black" href="#"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a class="p-px mx-1 hover:text-black" href="#"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a class="p-px mx-1 hover:text-black" href="#"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="flex items-center mb-2">
+          <span class="company-name text-lg font-bold">(주)웨이브북스</span>
+        </div>
+
+        <div class="text-xs">
+          <div class="mb-1">
+            <span>대표이사 : 장지철</span>
+            <span>사업자등록번호 : 123-45-67890</span>
+            <span>호스팅 제공자 : (주)웨이브북스</span>
+          </div>
+          <div class="mb-1">
+            <span>통신판매업신고번호 : 2022-서울양천-1111호</span>
+            <span>주소 : 서울특별시 양천구 신정동 000-00 1층</span>
+          </div>
+          <div class="mb-1">
+            <span>고객정보보호 책임자 : 장지철(wkdwlcjf1234@gmail.com)</span>
+            <span>마케팅 제휴 문의 : wkdwlcjf1234@gmail.com</span>
+          </div>
+        </div>
+
+        <span class="text-xs"
+          >Copyright ⓒ Wavebooks Corp. All Rights Reserved.</span
+        >
+      </div>
+    </footer>
 
     <!-- start-button -->
     <a
-      class="block fixed left-1/2 translate-half-x bottom-10 w-72 h-10 text-center leading-9 bg-zinc-800 hover:bg-zinc-500 z-50 duration-200 text-white text-lg rounded-full cursor-pointer"
+      class="block fixed left-1/2 translate-half-x bottom-10 w-72 h-10 text-center leading-9 bg-zinc-800 hover:opacity-70 z-50 duration-200 text-white text-lg rounded-full cursor-pointer"
       >첫 달 <b>무료</b>로 시작하기</a
     >
   </body>

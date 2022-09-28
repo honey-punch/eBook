@@ -351,8 +351,8 @@ const qnaIcon = document.querySelectorAll('.qna-list i');
 //   qnaLists[i].addEventListener('click', () => {
 //     qnaLists[i].classList.toggle('h-56');
 //     qnaIcon[i].classList.toggle('fa-angle-up');
-//   });
-// })
+//   })
+// });
 
 qnaLists.forEach((e, i) => {
   qnaLists[i].addEventListener('click', () => {
@@ -370,4 +370,4 @@ qnaLists.forEach((e, i) => {
     qnaLists[i].classList.add('h-56');
     qnaIcon[i].classList.add('fa-angle-up');
   })
-})
+});
