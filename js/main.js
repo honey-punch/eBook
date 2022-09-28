@@ -347,27 +347,27 @@ qnaList.addEventListener("wheel", function(e){
 const qnaLists = document.querySelectorAll('.qna-list li');
 const qnaIcon = document.querySelectorAll('.qna-list i');
 
+qnaLists.forEach((e, i) => {
+  qnaLists[i].addEventListener('click', () => {
+    qnaLists[i].classList.toggle('h-56');
+    qnaIcon[i].classList.toggle('fa-angle-up');
+  })
+});
+
 // qnaLists.forEach((e, i) => {
 //   qnaLists[i].addEventListener('click', () => {
-//     qnaLists[i].classList.toggle('h-56');
-//     qnaIcon[i].classList.toggle('fa-angle-up');
+//     qnaLists.forEach((e, j) => {
+//       qnaLists[j].classList.remove('h-56');
+//       qnaIcon[j].classList.remove('fa-angle-up');
+//     })
+//     qnaLists[i].classList.add('h-56');
+//     qnaIcon[i].classList.add('fa-angle-up');
 //   })
 // });
 
-qnaLists.forEach((e, i) => {
-  qnaLists[i].addEventListener('click', () => {
-    qnaLists.forEach((e, j) => {
-      qnaLists[j].classList.remove('h-56');
-      qnaIcon[j].classList.remove('fa-angle-up');
-    })
-    qnaLists[i].classList.add('h-56');
-    qnaIcon[i].classList.add('fa-angle-up');
-  })
-});
-
-qnaLists.forEach((e, i) => {
-  qnaLists[i].addEventListener('click', () => {
-    qnaLists[i].classList.add('h-56');
-    qnaIcon[i].classList.add('fa-angle-up');
-  })
-});
+// qnaLists.forEach((e, i) => {
+//   qnaLists[i].addEventListener('click', () => {
+//     qnaLists[i].classList.add('h-56');
+//     qnaIcon[i].classList.add('fa-angle-up');
+//   })
+// });
