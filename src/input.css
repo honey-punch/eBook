@@ -41,6 +41,9 @@
 .content-box-height {
   height: 720px;
 }
+.rate-plan-box-height {
+  height: 22rem;
+}
 
 @keyframes to-left {
   0%,

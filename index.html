@@ -170,12 +170,12 @@
           당신에게 맞는 요금제 찾기
         </p>
         <!-- content box -->
-        <div class="content-box-height w-full max-w-6xl my-10 overflow-scroll">
+        <div class="content-box-height w-full max-w-6xl my-10 overflow-hidden">
           <!-- rate-plan -->
           <div class="rate-plan-area flex justify-between mb-10">
             <!-- basic -->
             <div
-              class="rate-plan-box relative w-72 h-96 p-6 border hover-border-main-color duration-200"
+              class="rate-plan-box rate-plan-box-height relative w-72 p-6 border hover-border-main-color duration-200"
             >
               <h2 class="text-center text-lg font-semibold text-zinc-400 mb-6">
                 BASIC
@@ -202,7 +202,7 @@
             </div>
             <!-- standard -->
             <div
-              class="rate-plan-box relative w-72 h-96 p-6 border hover-border-main-color duration-200"
+              class="rate-plan-box rate-plan-box-height relative w-72 p-6 border hover-border-main-color duration-200"
             >
               <h2 class="text-center text-lg font-semibold text-zinc-400 mb-6">
                 STANDARD
@@ -233,7 +233,7 @@
             </div>
             <!-- premium -->
             <div
-              class="rate-plan-box relative w-72 h-96 p-6 border hover-border-main-color duration-200"
+              class="rate-plan-box rate-plan-box-height relative w-72 p-6 border hover-border-main-color duration-200"
             >
               <h2 class="text-center text-lg font-semibold text-zinc-400 mb-6">
                 PREMIUM
@@ -387,6 +387,12 @@
               </div>
             </li>
           </ul>
+
+          <a
+            class="block w-fit p-2 mx-auto my-0 text-white underline underline-offset-2 hover:opacity-50"
+            href="#"
+            >고객센터 바로가기</a
+          >
         </div>
       </section>
     </main>
@@ -439,16 +445,18 @@
 
         <div class="text-xs">
           <div class="mb-1">
-            <span>대표이사 : 장지철</span>
-            <span>사업자등록번호 : 123-45-67890</span>
+            <span class="mr-2">대표이사 : 장지철</span>
+            <span class="mr-2">사업자등록번호 : 123-45-67890</span>
             <span>호스팅 제공자 : (주)웨이브북스</span>
           </div>
           <div class="mb-1">
-            <span>통신판매업신고번호 : 2022-서울양천-1111호</span>
+            <span class="mr-2">통신판매업신고번호 : 2022-서울양천-1111호</span>
             <span>주소 : 서울특별시 양천구 신정동 000-00 1층</span>
           </div>
           <div class="mb-1">
-            <span>고객정보보호 책임자 : 장지철(wkdwlcjf1234@gmail.com)</span>
+            <span class="mr-2"
+              >고객정보보호 책임자 : 장지철(wkdwlcjf1234@gmail.com)</span
+            >
             <span>마케팅 제휴 문의 : wkdwlcjf1234@gmail.com</span>
           </div>
         </div>

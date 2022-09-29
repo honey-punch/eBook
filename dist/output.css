@@ -1026,9 +1026,18 @@ video {
   color: rgb(161 161 170 / var(--tw-text-opacity));
 }
 
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .line-through {
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
+}
+
+.underline-offset-2 {
+  text-underline-offset: 2px;
 }
 
 .opacity-40 {
@@ -1093,6 +1102,10 @@ video {
 
 .content-box-height {
   height: 720px;
+}
+
+.rate-plan-box-height {
+  height: 22rem;
 }
 
 @-webkit-keyframes to-left {
@@ -1160,4 +1173,8 @@ video {
 
 .hover\:opacity-60:hover {
   opacity: 0.6;
+}
+
+.hover\:opacity-50:hover {
+  opacity: 0.5;
 }
