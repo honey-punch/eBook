@@ -363,10 +363,3 @@ qnaLists.forEach((e, i) => {
 //     qnaIcon[i].classList.add('fa-angle-up');
 //   })
 // });
-
-// qnaLists.forEach((e, i) => {
-//   qnaLists[i].addEventListener('click', () => {
-//     qnaLists[i].classList.add('h-56');
-//     qnaIcon[i].classList.add('fa-angle-up');
-//   })
-// });
