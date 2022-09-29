@@ -40,7 +40,6 @@ function wheelDown() {
         top: sections[i].clientHeight,
         behavior: 'smooth'
       });
-      console.log();
     }
   }
 }
