@@ -1,10 +1,13 @@
 // wheel common
+// 페이지 이동이나 새로고침시 스크롤 위치가 맨위로 오게
 history.scrollRestoration = "manual";
 
+// 윈도우가 리사이징되면 재로드 되게
 window.onresize = function () {
   document.location.reload();
 }
 
+// 휠이벤트 발생 시 스크롤 되지 않게
 window.addEventListener("wheel", (e) => {
 	e.preventDefault();
 },{passive : false});
@@ -14,9 +17,8 @@ const windowHeight = window.innerHeight;
 const body = document.querySelector('body')
 
 // wheel event
-
 window.addEventListener('wheel', (e) => {
-  const isUp = Math.sign(e.wheelDelta) < 0;
+  const isUp = e.wheelDelta < 0;
   const isBottom = windowHeight + window.scrollY === body.offsetHeight;
 
   if (Math.abs(e.deltaY) > 25) {
@@ -60,66 +62,10 @@ function wheelUp() {
 
 function wheelUpFooter() {
   scrollTo({
-  top: sections[sections.length - 2].offsetTop,
-  behavior: 'smooth'
+    top: sections[sections.length - 2].offsetTop,
+    behavior: 'smooth'
   });
 }
-
-// 디바운싱
-// let timer;
-// window.addEventListener("wheel", function(e) {
-//   if (timer) {
-//     clearTimeout(timer);
-//   }
-//   timer = setTimeout(function () {
-//     if(e.deltaY < 0) {
-//       wheelUp();
-//     } else if (e.deltaY > 0) {
-//       wheelDown();
-//     }
-//   }, 40)
-// });
-
-// 디바운싱2
-// let curIndex = 0;
-// let wheelTimer;
-// window.addEventListener("wheel", function(e) {
-//   clearTimeout(wheelTimer);
-//   wheelTimer = setTimeout(function() {
-//   	if(e.deltaY < 0) {
-//       doScroll(--curIndex);
-//     } else {
-//       doScroll(++curIndex);
-//     }
-//   }, 50);
-// });
-
-//스로틀링
-// let timer;
-// window.addEventListener("wheel", function(e) {
-//   if (!timer) {
-//     timer = setTimeout(function () {
-//       timer = null;
-//       if(e.deltaY < 0) {
-//         wheelUp();
-//       } else if (e.deltaY > 0) {
-//         wheelDown();
-//       }
-//     }, 500)
-//   }
-// });
-
-// 스크롤시 header 안보이게
-// const header = document.querySelector('header');
-
-// window.addEventListener('wheel', () => {
-//   let top = window.scrollY;
-//   if (top != 0) {
-//     header.classList.add('hidden')
-//   } else {
-//     header.classList.remove('hidden');
-//   }
-// });
 
 // section2
 // bookImg object & array
@@ -187,6 +133,7 @@ function makeBoxCopy() {
 }
 
 let j = 0;
+
 while(j < 2) {
   makeBoxCopy();
   j++;
@@ -279,10 +226,10 @@ bookLists[0].classList.remove('opacity-40')
 bookLists[0].classList.remove('border-l')
 
 bookLists.forEach((e, i) => {
-  bookLists[i].addEventListener('mouseover', () => {
-    bookLists.forEach((e, j) => {
-      bookLists[j].classList.add('opacity-40');
-      bookLists[j].classList.add('border-l');
+  e.addEventListener('mouseover', () => {
+    bookLists.forEach(v => {
+      v.classList.add('opacity-40');
+      v.classList.add('border-l');
     })
     bookImg.src = bookInfoList[i].bookImg;
     bookTitle.textContent = bookInfoList[i].bookTitle;
@@ -290,8 +237,8 @@ bookLists.forEach((e, i) => {
     bookPrice.textContent = bookInfoList[i].bookPrice;
     bookSubcopy.textContent = bookInfoList[i].bookSubcopy;
     bookStory.textContent = bookInfoList[i].bookStory;
-    bookLists[i].classList.remove('opacity-40');
-    bookLists[i].classList.remove('border-l');
+    e.classList.remove('opacity-40');
+    e.classList.remove('border-l');
   })
 })
 
@@ -309,28 +256,28 @@ const ratePlanBtn = document.querySelectorAll('.rate-plan-btn');
 const ratePlanName = document.querySelectorAll('.rate-plan-box h2')
 
 ratePlanBox.forEach((e, i) => {
-  ratePlanBox[i].addEventListener('mouseover', () => {
+  e.addEventListener('mouseover', () => {
     ratePlanBtn[i].classList.remove('opacity-0');
     ratePlanBtn[i].classList.add('opacity-100');
     ratePlanName[i].classList.add('main-color');
   });
 });
 ratePlanBox.forEach((e, i) => {
-  ratePlanBox[i].addEventListener('mouseout', () => {
+  e.addEventListener('mouseout', () => {
     ratePlanBtn[i].classList.remove('opacity-100');
     ratePlanBtn[i].classList.add('opacity-0');
     ratePlanName[i].classList.remove('main-color');
   });
 });
 
-ratePlanBtn.forEach((e, i) => {
-  ratePlanBtn[i].addEventListener('mouseover', () => {
-    ratePlanBtn[i].classList.add('bg-main-color');
+ratePlanBtn.forEach(e => {
+  e.addEventListener('mouseover', () => {
+    e.classList.add('bg-main-color');
   });
 });
-ratePlanBtn.forEach((e, i) => {
-  ratePlanBtn[i].addEventListener('mouseout', () => {
-    ratePlanBtn[i].classList.remove('bg-main-color');
+ratePlanBtn.forEach(e => {
+  e.addEventListener('mouseout', () => {
+    e.classList.remove('bg-main-color');
   });
 });
 
@@ -347,19 +294,8 @@ const qnaLists = document.querySelectorAll('.qna-list li');
 const qnaIcon = document.querySelectorAll('.qna-list i');
 
 qnaLists.forEach((e, i) => {
-  qnaLists[i].addEventListener('click', () => {
-    qnaLists[i].classList.toggle('h-56');
+  e.addEventListener('click', () => {
+    e.classList.toggle('h-56');
     qnaIcon[i].classList.toggle('fa-angle-up');
   })
 });
-
-// qnaLists.forEach((e, i) => {
-//   qnaLists[i].addEventListener('click', () => {
-//     qnaLists.forEach((e, j) => {
-//       qnaLists[j].classList.remove('h-56');
-//       qnaIcon[j].classList.remove('fa-angle-up');
-//     })
-//     qnaLists[i].classList.add('h-56');
-//     qnaIcon[i].classList.add('fa-angle-up');
-//   })
-// });
