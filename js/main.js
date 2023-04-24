@@ -12,7 +12,7 @@ window.addEventListener("wheel", (e) => {
 	e.preventDefault();
 },{passive : false});
 
-const sections = document.querySelectorAll(".section");
+let sections = document.querySelectorAll(".section");
 const windowHeight = window.innerHeight;
 const body = document.querySelector('body')
 
@@ -33,13 +33,13 @@ window.addEventListener('wheel', (e) => {
 });
 
 function wheelDown() {
-  const lastElementTop =
+  let lastElementTop =
     sections[sections.length - 1].getBoundingClientRect().top;
 
-  for (let i = 1; i < sections.length; i++) {
-    if (lastElementTop === windowHeight * (sections.length - i)) {
-      scrollBy({
-        top: sections[i].clientHeight,
+  for (let i = 0; i < sections.length; i++) {
+    if (lastElementTop === windowHeight * (sections.length - (i + 1))) {
+      scrollTo({
+        top: sections[i + 1].offsetTop,
         behavior: 'smooth'
       });
     }
@@ -50,10 +50,10 @@ function wheelUp() {
   const lastElementTop =
     sections[sections.length - 1].getBoundingClientRect().top;
 
-  for (let i = 0; i < sections.length; i++) {
-    if (lastElementTop === windowHeight * i) {
-      scrollBy({
-        top: -sections[i].clientHeight,
+  for (let i = 1; i < sections.length; i++) {
+    if (lastElementTop === windowHeight * (sections.length - (i + 1))) {
+      scrollTo({
+        top: sections[i - 1].offsetTop,
         behavior: 'smooth',
       });
     }
@@ -75,12 +75,11 @@ class BookImg {
   }
 }
 
-const bookImgList = new Array();
+const bookImgList = [];
 
 function createAndPush(imgSrc) {
   const book = new BookImg(imgSrc);
   bookImgList.push(book);
-  return bookImgList;
 }
 
 createAndPush('./img/section2-1.jpeg');
@@ -114,17 +113,14 @@ function makeTempCopy() {
   animationBox.appendChild(copy);
 }
 
-let i = 0;
-
-while(i < bookImgList.length - 1) {
+for (let i = 0; i < bookImgList.length - 1; i++) {
   makeTempCopy();
-  i++;
 }
 
 let bookImgSrc = document.querySelectorAll('.book-img-src');
 
 bookImgSrc.forEach((e, i) => {
-  bookImgSrc[i].src = bookImgList[i].imgSrc;
+  e.src = bookImgList[i].imgSrc;
 })
 
 function makeBoxCopy() {
@@ -132,11 +128,8 @@ function makeBoxCopy() {
   hiddenBox.appendChild(copy);
 }
 
-let j = 0;
-
-while(j < 2) {
+for (let i = 0; i < 2; i++) {
   makeBoxCopy();
-  j++;
 }
 
 animationBox = document.querySelectorAll('.animation-box');
@@ -150,10 +143,8 @@ animationBox[2].classList.add('to-left');
 // 스크롤 일부 허용
 const bookList = document.querySelector('.book-list');
 
-bookList.addEventListener("wheel", function(e){
-  e.preventDefault = false;
-  e.stopImmediatePropagation();
-  e.stopPropagation();
+bookList.addEventListener("wheel", (e) => {
+  e.stopImmediatePropagation()
 });
 
 // book list와 book info 연동
