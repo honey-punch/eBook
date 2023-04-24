@@ -215,18 +215,18 @@ bookStory.textContent = bookInfoList[0].bookStory;
 bookLists[0].classList.remove('opacity-40')
 bookLists[0].classList.remove('border-l')
 
-bookLists.forEach((e, i) => {
-  e.addEventListener('mouseover', () => {
+bookInfoList.forEach((e, i) => {
+  bookLists[i].addEventListener('mouseover', () => {
     bookLists.forEach(v => {
       v.classList.add('opacity-40');
       v.classList.add('border-l');
     })
-    bookImg.src = bookInfoList[i].bookImg;
-    bookTitle.textContent = bookInfoList[i].bookTitle;
-    bookAuthor.textContent = bookInfoList[i].bookAuthor;
-    bookPrice.textContent = bookInfoList[i].bookPrice;
-    bookSubcopy.textContent = bookInfoList[i].bookSubcopy;
-    bookStory.textContent = bookInfoList[i].bookStory;
+    bookImg.src = e.bookImg;
+    bookTitle.textContent = e.bookTitle;
+    bookAuthor.textContent = e.bookAuthor;
+    bookPrice.textContent = e.bookPrice;
+    bookSubcopy.textContent = e.bookSubcopy;
+    bookStory.textContent = e.bookStory;
     e.classList.remove('opacity-40');
     e.classList.remove('border-l');
   })
@@ -236,6 +236,8 @@ bookLists.forEach((e, i) => {
 const ratePlanArea = document.querySelector('.rate-plan-area');
 
 ratePlanArea.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 
@@ -273,6 +275,8 @@ ratePlanBtn.forEach(e => {
 const qnaList = document.querySelector('.qna-list');
 
 qnaList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 

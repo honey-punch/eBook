@@ -211,7 +211,6 @@ bookPrice.textContent = bookInfoList[0].bookPrice;
 bookSubcopy.textContent = bookInfoList[0].bookSubcopy;
 bookStory.textContent = bookInfoList[0].bookStory;
 
-// 처음 활성화된 book list
 bookLists[0].classList.remove('opacity-40')
 bookLists[0].classList.remove('border-l')
 
@@ -236,6 +235,8 @@ bookLists.forEach((e, i) => {
 const ratePlanArea = document.querySelector('.rate-plan-area');
 
 ratePlanArea.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 
@@ -273,6 +274,8 @@ ratePlanBtn.forEach(e => {
 const qnaList = document.querySelector('.qna-list');
 
 qnaList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 

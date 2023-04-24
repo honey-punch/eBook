@@ -144,7 +144,7 @@ animationBox[2].classList.add('to-left');
 const bookList = document.querySelector('.book-list');
 
 bookList.addEventListener("wheel", (e) => {
-  e.stopPropagation();
+  //e.stopImmediatePropagation()
 });
 
 // book list와 book info 연동
@@ -180,8 +180,11 @@ function makeListCopy() {
   bookList.appendChild(copy);
 }
 
-for (let i = 0; i < bookInfoList.length - 1; i++) {
+let l = 0;
+
+while(l < bookInfoList.length - 1) {
   makeListCopy();
+  l++;
 }
 
 bookLists = document.querySelectorAll('.book-list li a');
@@ -191,8 +194,8 @@ let bookListImg = document.querySelectorAll('.book-list-img');
 let bookListSubcopy = document.querySelectorAll('.book-list-subcopy');
 
 bookInfoList.forEach((e, i) => {
-  bookListImg[i].src = e.bookImg;
-  bookListSubcopy[i].textContent = e.bookSubcopy;
+  bookListImg[i].src = bookInfoList[i].bookImg;
+  bookListSubcopy[i].textContent = bookInfoList[i].bookSubcopy;
 })
 
 // book info list, book list, book info 연동
@@ -203,7 +206,6 @@ const bookPrice = document.querySelector('.book-price');
 const bookSubcopy = document.querySelector('.book-subcopy');
 const bookStory = document.querySelector('.book-story');
 
-// 처음 보여지는 book info
 bookImg.src = bookInfoList[0].bookImg;
 bookTitle.textContent = bookInfoList[0].bookTitle;
 bookAuthor.textContent = bookInfoList[0].bookAuthor;
@@ -211,7 +213,6 @@ bookPrice.textContent = bookInfoList[0].bookPrice;
 bookSubcopy.textContent = bookInfoList[0].bookSubcopy;
 bookStory.textContent = bookInfoList[0].bookStory;
 
-// 처음 활성화된 book list
 bookLists[0].classList.remove('opacity-40')
 bookLists[0].classList.remove('border-l')
 
@@ -236,6 +237,8 @@ bookLists.forEach((e, i) => {
 const ratePlanArea = document.querySelector('.rate-plan-area');
 
 ratePlanArea.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 
@@ -273,6 +276,8 @@ ratePlanBtn.forEach(e => {
 const qnaList = document.querySelector('.qna-list');
 
 qnaList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 
