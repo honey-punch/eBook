@@ -18,11 +18,11 @@ const body = document.querySelector('body')
 
 // wheel event
 window.addEventListener('wheel', (e) => {
-  const isDown = e.wheelDelta < 0;
+  const isUp = e.wheelDelta < 0;
   const isBottom = windowHeight + window.scrollY === body.offsetHeight;
 
   if (Math.abs(e.deltaY) > 25) {
-    if (isDown) {
+    if (isUp) {
       wheelDown();
     } else if (isBottom) {
       wheelUpFooter();
@@ -273,6 +273,8 @@ ratePlanBtn.forEach(e => {
 const qnaList = document.querySelector('.qna-list');
 
 qnaList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 

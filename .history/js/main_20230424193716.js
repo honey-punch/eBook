@@ -18,11 +18,11 @@ const body = document.querySelector('body')
 
 // wheel event
 window.addEventListener('wheel', (e) => {
-  const isDown = e.wheelDelta < 0;
+  const isUp = e.wheelDelta < 0;
   const isBottom = windowHeight + window.scrollY === body.offsetHeight;
 
   if (Math.abs(e.deltaY) > 25) {
-    if (isDown) {
+    if (isUp) {
       wheelDown();
     } else if (isBottom) {
       wheelUpFooter();
@@ -238,6 +238,7 @@ const ratePlanArea = document.querySelector('.rate-plan-area');
 ratePlanArea.addEventListener("wheel", function(e){
   e.stopPropagation();
 });
+console.log(ratePlanArea);
 
 const ratePlanBox = document.querySelectorAll('.rate-plan-box');
 const ratePlanBtn = document.querySelectorAll('.rate-plan-btn');
@@ -273,6 +274,8 @@ ratePlanBtn.forEach(e => {
 const qnaList = document.querySelector('.qna-list');
 
 qnaList.addEventListener("wheel", function(e){
+  e.preventDefault = false;
+  e.stopImmediatePropagation();
   e.stopPropagation();
 });
 
