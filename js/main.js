@@ -18,11 +18,11 @@ const body = document.querySelector('body')
 
 // wheel event
 window.addEventListener('wheel', (e) => {
-  const isUp = e.wheelDelta < 0;
+  const isDown = e.wheelDelta < 0;
   const isBottom = windowHeight + window.scrollY === body.offsetHeight;
 
   if (Math.abs(e.deltaY) > 25) {
-    if (isUp) {
+    if (isDown) {
       wheelDown();
     } else if (isBottom) {
       wheelUpFooter();
